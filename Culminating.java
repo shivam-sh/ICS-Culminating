@@ -4,10 +4,17 @@
  * ICS 4U
  */
 
- import java.util.Scanner;
- 
 public class Culminating {
     public static void main(String[] args) {
-        System.out.println("test");
+        Graphics.Logo();
+        Graphics.Divider();
+        
+        String input = "exit";
+
+        do {
+            
+        } while (input != "exit");
+
+        Graphics.Exit();
     }
 }
