@@ -3,6 +3,8 @@
  * Graphics.java
  * @version 1.0
  */
+
+
 public class Graphics {
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLACK = "\u001B[30m";
@@ -35,6 +37,12 @@ public class Graphics {
                             ANSI_PURPLE +
                             "   #################\n" + 
                             "     #####   #####\n");
+
+                            try {
+                                Thread.sleep(2000);
+                            } catch (Exception e) {
+                                //TODO: handle exception
+                            }
     }
 
     public static void Divider() {
