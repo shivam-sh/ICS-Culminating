@@ -1,9 +1,20 @@
+
 /**
  * @author Shivam Sharma
  * Graphics.java
  * @version 1.0
  */
 
+import java.io.File;
+import java.io.IOException;
+
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.DataLine;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.SourceDataLine;
 
 public class Graphics {
     public static final String ANSI_RESET = "\u001B[0m";
@@ -37,12 +48,16 @@ public class Graphics {
                             ANSI_PURPLE +
                             "   #################\n" + 
                             "     #####   #####\n");
+                           
+                            play("Startup1.wav");
 
                             try {
                                 Thread.sleep(2000);
                             } catch (Exception e) {
                                 //TODO: handle exception
                             }
+                            
+                        
     }
 
     public static void Divider() {
@@ -61,4 +76,19 @@ public class Graphics {
             "  GGG    OOO    OOO   DDDD   BBBB     Y    EEEEE   \n"
         );        
     }
+
+    public static void play(String filename)
+{
+    try
+    {
+        Clip clip = AudioSystem.getClip();
+        clip.open(AudioSystem.getAudioInputStream(new File(filename)));
+        clip.start();
+    }
+    catch (Exception exc)
+    {
+        exc.printStackTrace(System.out);
+    }
+}
+
 }
