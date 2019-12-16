@@ -23,72 +23,69 @@ public class Graphics {
 
     public static void Logo() {
         System.out.println( ANSI_CYAN + "\n" +
-                            "               ##\n" + 
+                            "                ##\n" + 
+                            "              ####\n" + 
                             "             ####\n" + 
-                            "            ####\n" + 
-                            "            ##\n" + 
+                            "             ##\n" + 
                             ANSI_GREEN +
-                            "    ######     ######\n" + 
-                            "  #####################\n" + 
-                            " ####################\n" + 
+                            "     ######     ######\n" + 
+                            "   #####################\n" + 
+                            "  ####################\n" + 
                             ANSI_YELLOW +
-                            "###################            TTT  H H  III  N N  K K \n" + 
-                            "###################             T   HHH   I   NNN  KK  \n" + 
-                            "###################             T   H H  III  N N  K K \n" + 
+                            " ###################            TTT  H H  III  N N  K K \n" + 
+                            " ###################             T   HHH   I   NNN  KK  \n" + 
+                            " ###################             T   H H  III  N N  K K \n" + 
                             ANSI_RED + 
-                            "#####################          DD  III FFF FFF EEE RRR EEE N N TTT \n" + 
-                            " ######################        D D  I  FF  FF  EE  RRR EE  NNN  T  \n" + 
-                            "  ####################         DD  III F   F   EEE R R EEE N N  T  \n" + 
+                            " #####################          DD  III FFF FFF EEE RRR EEE N N TTT \n" + 
+                            "  ######################        D D  I  FF  FF  EE  RRR EE  NNN  T  \n" + 
+                            "   ####################         DD  III F   F   EEE R R EEE N N  T  \n" + 
                             ANSI_PURPLE +
-                            "   #################\n" + 
-                            "     #####   #####\n");
+                            "    #################\n" + 
+                            "      #####   #####\n" +
+                            ANSI_RESET);
+
+                            try {
+                                Thread.sleep(500);
+                            } catch (Exception e) {}
+                           
+                            play("Bootup.wav");
 
                             try {
                                 Thread.sleep(1000);
-                            } catch (Exception e) {
-                                //TODO: handle exception
-                            }
-                           
-                            play("Startup1.wav");
-
-                            try {
-                                Thread.sleep(3000);
-                            } catch (Exception e) {
-                                //TODO: handle exception
-                            }
+                            } catch (Exception e) {}
                             
                         
     }
 
     public static void Divider() {
         System.out.println(ANSI_BLUE + "\n" +
-        "▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅\n"
-        );
-        
+        "▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅\n" +
+        ANSI_RESET);
     }
 
     public static void Exit() {
-        System.out.println( ANSI_YELLOW + "\n" +
+        System.out.println( ANSI_RED + "\n" +
             "  GGG    OOO    OOO   DDDD   BBBB   Y   Y  EEEEE   \n" +
             " G      O   O  O   O  D   D  B   B   Y Y   E       \n" +
             " G   G  O   O  O   O  D   D  BBBB     Y    EEEE    \n" +
             " G   G  O   O  O   O  D   D  B   B    Y    E       \n" +
-            "  GGG    OOO    OOO   DDDD   BBBB     Y    EEEEE   \n"
-        );        
+            "  GGG    OOO    OOO   DDDD   BBBB     Y    EEEEE   \n" +
+            ANSI_RESET);        
     }
 
-    public static void play(String filename)
-{
-    try
-    {
-        Clip clip = AudioSystem.getClip();
-        clip.open(AudioSystem.getAudioInputStream(new File(filename)));
-        clip.start();
+    public static void play(String filename){
+        try {
+            Clip clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(new File(filename)));
+            clip.start();
+            while (!clip.isRunning())
+            Thread.sleep(10);
+            while (clip.isRunning())
+            Thread.sleep(10);
+            clip.close();
+        }
+        catch (Exception exc) {
+            exc.printStackTrace(System.out);
+        }
     }
-    catch (Exception exc)
-    {
-        exc.printStackTrace(System.out);
-    }
-}
-
 }
