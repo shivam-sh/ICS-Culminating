@@ -4,10 +4,10 @@
  * ICS 4U
  */
 
-public class Culminating {
+public class Interface {
     public static void main(String[] args) {
-        Graphics.Logo();
-        Graphics.Divider();
+        FX.Logo();
+        FX.Divider();
         
         String input = "exit";
 
@@ -15,6 +15,6 @@ public class Culminating {
             
         } while (input != "exit");
 
-        Graphics.Exit();
+        FX.Exit();
     }
 }

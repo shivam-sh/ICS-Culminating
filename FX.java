@@ -1,7 +1,7 @@
 
 /**
  * @author Shivam Sharma
- * Graphics.java
+ * FX.java
  * @version 1.0
  */
 
@@ -10,7 +10,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
 
-public class Graphics {
+public class FX {
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLACK = "\u001B[30m";
     public static final String ANSI_RED = "\u001B[31m";
@@ -67,7 +67,7 @@ public class Graphics {
         System.out.println( ANSI_RED + "\n" +
             "  GGG    OOO    OOO   DDDD   BBBB   Y   Y  EEEEE   \n" +
             " G      O   O  O   O  D   D  B   B   Y Y   E       \n" +
-            " G   G  O   O  O   O  D   D  BBBB     Y    EEEE    \n" +
+            " G  GG  O   O  O   O  D   D  BBBB     Y    EEEE    \n" +
             " G   G  O   O  O   O  D   D  B   B    Y    E       \n" +
             "  GGG    OOO    OOO   DDDD   BBBB     Y    EEEEE   \n" +
             ANSI_RESET);        
