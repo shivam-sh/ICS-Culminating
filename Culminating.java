@@ -3,9 +3,18 @@
  * Shivam, Mikayel, Daniel
  * ICS 4U
  */
+
 public class Culminating {
     public static void main(String[] args) {
-        //Please do the e-sports thing
-        System.out.println("test");
+        Graphics.Logo();
+        Graphics.Divider();
+        
+        String input = "exit";
+
+        do {
+            
+        } while (input != "exit");
+
+        Graphics.Exit();
     }
 }
