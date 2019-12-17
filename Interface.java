@@ -1,13 +1,16 @@
 /**
  * Culminating.java
- * Shivam, Mikayel, Daniel
- * ICS 4U
+ * Shivam Sharma, Mikayel Sargsyan, Daniel-Mao Mitchell
+ * 13/11/19
+ * ICS 4U   NHSS
+ * 
+ * 
  */
 
-public class Culminating {
+public class Interface {
     public static void main(String[] args) {
-        Graphics.Logo();
-        Graphics.Divider();
+        FX.Logo();
+        FX.Divider();
         
         String input = "exit";
 
@@ -15,6 +18,6 @@ public class Culminating {
             
         } while (input != "exit");
 
-        Graphics.Exit();
+        FX.Exit();
     }
 }
