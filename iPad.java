@@ -17,23 +17,22 @@ public class iPad extends Product {
 }
 
 /*
-iPad Pro 12.9-inch [$1,519+]
+iPad Pro 11-inch [$999+]
 Colours: 
-    Midnight Green
     Silver
     Space Grey
-    Gold
 Display Size:
-    6.5"
+    11.0"
 Camera:
-    Triple 12MP Stovetop
+    12MP
 Capacities:
     64 GB
     256 GB
     512 GB
+    1 TB
 Weight & Size:
-    226 g
-    158 x 77.8 x 8.1
+    468 g
+    247.6 x 178.5 x 5.9
 Processor:
-    A13
+    A12X
 */
