@@ -138,17 +138,17 @@ Processor:
     }
 
     public int getNumColours() {
-        return this.numColours;
+        return this.numColourOptions;
     }
     public void setNumColours(int numColours) {
-        this.numColours = numColours;
+        this.numColourOptions = numColours;
     }
 
     public int getNumStorage() {
-        return this.numStorage;
+        return this.numStorageOptions;
     }
     public void setNumStorage(int numStorage) {
-        this.numStorage = numStorage;
+        this.numStorageOptions = numStorage;
     }
     
 }
