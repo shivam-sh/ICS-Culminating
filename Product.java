@@ -23,8 +23,24 @@ public abstract class Product {
         price = p;
     }
 
+    /** 
+     *  Print out tnfo for the item
+     */
+    public void printSpecs() {
+        System.out.println(this.name + " - " + currency.format(this.price));
+    }
+
     public String toString() {
         return this.name + " - " + currency.format(this.price);
     }
     
 }
+
+
+/*
+Name [Price]
+Colours: 
+    x
+    y
+    z
+*/
