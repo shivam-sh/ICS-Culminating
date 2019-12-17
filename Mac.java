@@ -7,25 +7,39 @@
  * 
  */
 public class Mac extends Product {
-
+    
     private int numProcessorOptions;
     private int numMemoryOptions;
     private int numGraphicsOptions;
+    private int numStorageOptions;
+    private int numColourOptions;
+
     private String[] processors = new String[numProcessorOptions];
     private String[] memory = new String[numMemoryOptions];
     private String[] graphics = new String[numGraphicsOptions];
+    private String[] storage = new String[numStorageOptions];
+    private String[] colours = new String[numColourOptions];
 
-    public Mac(String n, double p, int nPO, int nMO, int nGO) {
+    private double weight;
+    private double[] size = new double[3];
+
+
+    public Mac(String n, double p, int nPO, int nMO, int nGO, int nSO, int nCO, int weight, int length, int width, int height) {
         super(n, p);
-        numProcessorOptions = nPO;
-        numMemoryOptions = nMO;
-        numGraphicsOptions = nGO;
+        this.numProcessorOptions = nPO;
+        this.numMemoryOptions = nMO;
+        this.numGraphicsOptions = nGO;
+        this.numStorageOptions = nSO;
+        this.numColourOptions = nCO;
+        this.weight = weight;
+        this.size[0] = length;
+        this.size[1] = width;
+        this.size[2] = height;
     }
-
 }
 
 /*
-Mac Pro [$7,499 +]
+Mac Pro [$7,499]
 Processor:
     8-Core 3.5GHz Intel Xeon W
     12-Core 3.3GHz Intel Xeon W     + $1,200
@@ -43,19 +57,17 @@ Memory:
     1.5 TB  + $30,000
 Graphics:
     AMD Radeon Pro 580X
-    AMD Radeon Pro Vega II      + $
-    Two AMD Radeon Pro Vega II  + $
-    AMD Radeon Pro Vega II Duo  + $
+    AMD Radeon Pro Vega II (32GB HBM2)              + $2,880
+    Two AMD Radeon Pro Vega II (32GB HBM2)          + $6,240
+    AMD Radeon Pro Vega II Duo (2 x 32GB HBM2)      + $6,240
+    Two AMD Radeon Pro Vega II Duo (2 x 32GB HBM2)  + $12,960
 Storage:
     256 GB
-    1 TB    + $
-    2 TB    + $
-    4 TB    + $
-    8 TB    + $
+    1 TB    + $480
+    2 TB    + $960
+    4 TB    + $1,680
 Colours: 
     Silver
-Display:
-    Not Included
 Weight & Size:
     18.0 kg
     52.9 x 45.0 x 21.8

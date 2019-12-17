@@ -18,7 +18,7 @@ public class iPhone extends Product {
 }
 
 /*
-iPhone 11 Pro Max [$1,519+]
+iPhone 11 Pro Max [$1,519]
 Colours: 
     Midnight Green
     Silver
@@ -30,8 +30,8 @@ Camera:
     Triple 12MP Stovetop
 Capacities:
     64 GB
-    256 GB
-    512 GB
+    256 GB      + $210
+    512 GB      + $480
 Weight & Size:
     226 g
     158 x 77.8 x 8.1

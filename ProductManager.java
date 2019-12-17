@@ -4,7 +4,7 @@
  * 13/11/19
  * ICS 4U   NHSS
  * 
- * 
+ * To manage the system that stores all of the products
  */
 public class ProductManager {
     private Product[] products = new Product[0];
