@@ -26,11 +26,11 @@ public class Mac extends Product {
 
     public Mac(String n, double p, int nPO, int nMO, int nGO, int nSO, int nCO, int weight, int length, int width, int height) {
         super(n, p);
+        this.numColourOptions = nCO;
         this.numProcessorOptions = nPO;
         this.numMemoryOptions = nMO;
         this.numGraphicsOptions = nGO;
         this.numStorageOptions = nSO;
-        this.numColourOptions = nCO;
         this.weight = weight;
         this.size[0] = length;
         this.size[1] = width;

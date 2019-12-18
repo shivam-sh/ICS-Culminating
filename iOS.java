@@ -6,7 +6,7 @@
  * 
  * 
  */
-public class iPad extends Product {
+public class iOS extends Product {
     
     private int numColourOptions;
     private int numStorageOptions;
@@ -23,20 +23,21 @@ public class iPad extends Product {
 
 
     /**     Create new type of iPad
-     * @param n
-     * @param p
-     * @param nCO
-     * @param nSO
-     * @param cam
-     * @param cpu
-     * @param display
-     * @param length
-     * @param width
-     * @param height
-     * @param weight
+     * @param name      [String]    - Name of iOS device
+     * @param price     [double]    - Price of iOS device
+     * @param nCO       [int]       - Number of colour options
+     * @param nSO       [int]       - Number of storage options
+     * @param cam       [String]    - Camera information
+     * @param cpu       [String]    - Processor used in product
+     * @param display   [double]    - Display size (inches)
+     * @param length    [double]    - Length of product (mm)
+     * @param width     [double]    - Width of product (mm)
+     * @param height    [double]    - Height of product (mm)
+     * @param weight    [double]    - Weight of product (grams)
      */
-    public iPad(String n, double p, int nCO, int nSO, String cam, String cpu, double display, double length, double width, double height, double weight) {
-        super(n, p);
+    public iOS(String name, double price, int nCO, int nSO, String cam, String cpu, double display, double length, double width, double height, double weight) {
+        super(n, p, nCO);
+        this.numStorageOptions = nSO;
         this.camera = cam;
         this.processor = cpu;
         this.size[0] = length;

@@ -11,7 +11,6 @@
 
 public abstract class Product {
     protected String name;
-    protected String processor;
     protected double price;
     
     protected int numColours;
@@ -22,13 +21,11 @@ public abstract class Product {
     /** Create a new product type
      * @param name          [String] - Name of product
      * @param price         [double] - Price of product (CAD)
-     * @param processor     [String] - Processor used in product
      * @param numOfColours  [int]    - Number of colour options available
      */
-    public Product(String name, double price, String processor, int numOfColours) {
+    public Product(String name, double price, int numOfColours) {
         this.name = name;
         this.price = price;
-        this.processor = processor;
         this.numColours = numOfColours;
     }
 
