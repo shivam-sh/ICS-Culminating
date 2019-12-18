@@ -4,10 +4,32 @@
  * 13/11/19
  * ICS 4U   NHSS
  * 
- * 
+ * To manage the system that stores all of the products
  */
 public class ProductManager {
-    Product[] products = new Product[1];
+    private Product[] products = new Product[0];
     
+    public void addProduct() {
+        Product[] temp = new Product[products.length + 1];
 
+        for (int i = 0; i < products.length; i++) {
+            temp[i] = products[i];
+        }
+    }
+
+    public void search() {
+        
+    }
+
+    public void saveArray() {
+        
+    }
+
+    public void loadArray() {
+        
+    }
+
+    public void sort() {
+        
+    }
 }
