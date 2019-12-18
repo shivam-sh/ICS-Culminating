@@ -11,31 +11,39 @@
 
 public abstract class Product {
     protected String name;
+    protected String processor;
     protected double price;
-
+    
+    protected int numColours;
+    protected String[] colours = new String[numColours];
 
     public NumberFormat currency = NumberFormat.getCurrencyInstance();
 
     /** Create a new product type
-     * @param name
-     * @param price
+     * @param name          [String] - Name of product
+     * @param price         [double] - Price of product (CAD)
+     * @param processor     [String] - Processor used in product
+     * @param numOfColours  [int]    - Number of colour options available
      */
-    public Product(String n, String proc, double pric, int numC) {
-        name = n;
-        processor = proc;
-        price = pric;
-        nmColour = numC;
+    public Product(String name, double price, String processor, int numOfColours) {
+        this.name = name;
+        this.price = price;
+        this.processor = processor;
+        this.numColours = numOfColours;
     }
 
     /** 
-     *  Print out tnfo for the item
+     *  Print out info for the item
      */
     public void printSpecs() {
-        System.out.println(this.name + " - " + currency.format(this.price));
+        System.out.println(this.name + " [" + currency.format(this.price) + "]");
     }
 
+    /**
+     *  @return     [String] - Name and price of product
+     */
     public String toString() {
-        return this.name + " - " + currency.format(this.price);
+        return this.name + "[" + currency.format(this.price) + "]";
     }
     
 }
