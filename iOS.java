@@ -4,7 +4,7 @@
  * 13/11/19
  * ICS 4U   NHSS
  * 
- * 
+ * Store information about iOS based devices
  */
 public class iOS extends Product {
     
@@ -22,7 +22,7 @@ public class iOS extends Product {
 
 
 
-    /**     Create new type of iPad
+    /**     Create new type of iOS device
      * @param name      [String]    - Name of iOS device
      * @param price     [double]    - Price of iOS device
      * @param nCO       [int]       - Number of colour options
@@ -36,7 +36,7 @@ public class iOS extends Product {
      * @param weight    [double]    - Weight of product (grams)
      */
     public iOS(String name, double price, int nCO, int nSO, String cam, String cpu, double display, double length, double width, double height, double weight) {
-        super(n, p, nCO);
+        super(name, price, nCO);
         this.numStorageOptions = nSO;
         this.camera = cam;
         this.processor = cpu;
@@ -51,122 +51,24 @@ public class iOS extends Product {
      */
     public void printSpecs() {
         System.out.println(super.toString() + "\nStorage:");
-        for (int i = 0; i < numStorageOptions; i++) {
-            System.out.println("\t" + storage[i]);
+        for (int i = 0; i < this.numStorageOptions; i++) {
+            System.out.println("\t" + this.storage[i]);
         }
 
         System.out.println("Colours:");
-        for (int i = 0; i < numColourOptions; i++) {
-            System.out.println("\t" + colours[i]);
+        for (int i = 0; i < this.numColourOptions; i++) {
+            System.out.println("\t" + this.colours[i]);
         }
 
         System.out.println("Camera:\n\t" + this.camera);
         System.out.println("Display Size:\n\t" + this.displaySize + "\"");
-        System.out.println("Weight & Size:\n\t" + this.weight + "g\n\t" + this.size[0] + "mm x " + this.size[1] + "mm x " + this.size[3] + "mm");
-        System.out.println("Processor:\n\t" + processor);
+        System.out.println("Weight & Size:\n\t" + this.weight + "g");
+        System.out.println("\t" + this.size[0] + "mm x " + this.size[1] + "mm x " + this.size[3] + "mm");
+        System.out.println("Processor:\n\t" + this.processor);
     }
-/*
-iPad Pro (11-inch)    [$999+]
-Storage:
-    64 GB
-    256 GB
-    512 GB
-    1 TB
-Colours: 
-    Silver
-    Space Grey
-Camera:
-    12MP
-Display Size:
-    11.0"
-Weight & Size:
-    468 g
-    247.6 x 178.5 x 5.9
-Processor:
-    A12X
-*/
-
-
-    //  ACCESSORS AND MUTATORS
-
-    public String getCamera() {
-        return this.camera;
-    }
-    public void setCamera(String camera) {
-        this.camera = camera;
-    }
-
-    public String getProcessor() {
-        return this.processor;
-    }
-    public void setProcessor(String processor) {
-        this.processor = processor;
-    }
-
-    public double getLength() {
-        return this.size[0];
-    }
-    public void setLength(double length) {
-        this.size[0] = length;
-    }
-
-    public double getWidth() {
-        return this.size[0];
-    }
-    public void setWidth(double width) {
-        this.size[0] = width;
-    }
-
-    public double getHeight() {
-        return this.size[3];
-    }
-    public void setHeight(double height) {
-        this.size[3] = height;
-    }
-
-    public double getDisplaySize() {
-        return this.displaySize;
-    }
-    public void setDisplaySize(double displaySize) {
-        this.displaySize = displaySize;
-    }
-
-    public double getWeight() {
-        return this.weight;
-    }
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
-
-    public int getNumColours() {
-        return this.numColourOptions;
-    }
-    public void setNumColours(int numColours) {
-        this.numColourOptions = numColours;
-    }
-
-    public int getNumStorage() {
-        return this.numStorageOptions;
-    }
-    public void setNumStorage(int numStorage) {
-        this.numStorageOptions = numStorage;
-    }
-    
 }
 
 /*
-<<<<<<< HEAD
-iPad Pro 12.9-inch [$1,519+]
-Colours: 
-    Midnight Green
-    Silver
-    Space Grey
-    Gold
-Display Size:
-    6.5"
-Camera:
-    Triple 12MP Stovetop
-=======
 iPad Pro 11-inch [$999+]
 Colours: 
     Silver
@@ -175,23 +77,14 @@ Display Size:
     11.0"
 Camera:
     12MP
->>>>>>> d6128f82239ccfb34752a09eb6bce1d2a2feeb9e
 Capacities:
     64 GB
     256 GB
     512 GB
-<<<<<<< HEAD
-Weight & Size:
-    226 g
-    158 x 77.8 x 8.1
-Processor:
-    A13
-=======
     1 TB
 Weight & Size:
     468 g
     247.6 x 178.5 x 5.9
 Processor:
     A12X
->>>>>>> d6128f82239ccfb34752a09eb6bce1d2a2feeb9e
 */

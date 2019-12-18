@@ -4,7 +4,7 @@
  * 13/11/19
  * ICS 4U   NHSS
  * 
- * 
+ * Abstract class based on which all products are saved
  */
 
  import java.text.NumberFormat;
@@ -33,7 +33,6 @@ public abstract class Product {
      *  Print out info for the item
      */
     public void printSpecs() {
-        System.out.println(this.name + " [" + currency.format(this.price) + "]");
     }
 
     /**
