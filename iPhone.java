@@ -8,7 +8,7 @@
  */
 public class iPhone extends Product {
     public String colour;
-
+  
     public iPhone(String n, double p) {
         super(n, p);
         
