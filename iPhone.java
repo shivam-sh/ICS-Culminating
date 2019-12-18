@@ -7,10 +7,23 @@
  * 
  */
 public class iPhone extends Product {
-    public String colour;
+    private String[] colours = new String[numColour];
+    private String camera;
+    private int numCapacities;
+    private String[] capacities = new String[numCapacities];
+    private double displaySize;
+    private double weight;
+    private double height;
+    
 
-    public iPhone(String n, double p) {
-        super(n, p);
+
+
+
+    
+
+    public iPhone(String n, String proc, double pric, int numC, int ) {
+        super(n, proc, pric, numC);
+
         
     }
 

@@ -11,16 +11,21 @@
 
 public abstract class Product {
     protected String name;
+    protected String processor;
     protected double price;
+    protected int numColour;
+
     public NumberFormat currency = NumberFormat.getCurrencyInstance();
 
     /** Create a new product type
      * @param name
      * @param price
      */
-    public Product(String n, double p) {
+    public Product(String n, String proc, double pric, int numC) {
         name = n;
-        price = p;
+        processor = proc;
+        price = pric;
+        nmColour = numC;
     }
 
     /** 
