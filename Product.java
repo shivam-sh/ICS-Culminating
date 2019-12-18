@@ -27,9 +27,12 @@ public abstract class Product {
      *  Print out info for the item
      */
     public void printSpecs() {
-        System.out.println(this.name + " - " + currency.format(this.price));
+        System.out.println(this.name + "    [" + currency.format(this.price) + "]");
     }
 
+    /**
+     * 
+     */
     public String toString() {
         return this.name + " [" + currency.format(this.price) + "]";
     }

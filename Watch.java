@@ -9,13 +9,25 @@
 public class Watch extends Product {
 
     private int numColors;
+    private int numDisplaySizes;
     private String[] colors = new String[numColors];
-
-    public Watch(String n, double p, int nC) {
-        super(n, p);
-        // TODO Auto-generated constructor stub
-    }
+    private String processor;
     
+    private double weight;
+    private double[] size = new double[3];
+    private double[] displaySize = new double[numDisplaySizes];
+
+
+    public Watch(String n, double p, int numColors, int numDisplaySizes, String processor, double weight, double length, double width, double height) {
+        super(n, p);
+        this.numColors = numColors;
+        this.numDisplaySizes = numDisplaySizes;
+        this.processor = processor;
+        this.weight = weight;
+        this.size[0] = length;
+        this.size[1] = width;
+        this.size[2] = height;
+    }
 }
 
 
