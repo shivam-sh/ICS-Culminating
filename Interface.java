@@ -4,7 +4,7 @@
  * 13/11/19
  * ICS 4U   NHSS
  * 
- * 
+ * To put together the user interface for the database
  */
 
 public class Interface {
