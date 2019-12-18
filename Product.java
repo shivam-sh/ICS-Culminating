@@ -10,8 +10,9 @@
  import java.text.NumberFormat;
 
 public abstract class Product {
-    protected String name;
-    protected double price;
+    private String name;
+    private double price;
+    private String description;
     
     protected int numColours;
     protected String[] colours = new String[numColours];
@@ -40,6 +41,16 @@ public abstract class Product {
      */
     public String toString() {
         return this.name + "[" + currency.format(this.price) + "]";
+    }
+
+    public void setDescription(String d) {
+        this.description = d;
+    }
+    public String getDescription() {
+        if (this.description == null) {
+            return "no description available";
+        } 
+        return this.description;
     }
     
 }

@@ -8,7 +8,12 @@
  */
 public class Accessories extends Product {
 
-    public Accessories(String n, double p, int nCO) {
-        super(n, p, nCO);
+    /**
+     * @param n
+     * @param p
+     * @param nCO
+     */
+    public Accessories(String n, double p) {
+        super(n, p, 1);
     }
 }

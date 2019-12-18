@@ -8,10 +8,8 @@
  */
 public class iOS extends Product {
     
-    private int numColourOptions;
     private int numStorageOptions;
 
-    private String[] colours = new String[numColourOptions];
     private String[] storage = new String[numStorageOptions];
     private String camera;
     private String processor;
