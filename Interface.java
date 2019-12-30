@@ -24,7 +24,7 @@ public class Interface {
             
         } while (input == "exit");
 
-        //scan.close();
+        scan.close();
         FX.Divider();
 
         FX.Exit();
