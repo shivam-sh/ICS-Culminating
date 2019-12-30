@@ -7,26 +7,32 @@
  * 
  */
 public class iPhone extends Product {
-    protected int numColour;
-    private String[] colours = new String[numColour];
-    private String camera;
     private int numCapacities;
-    private String[] capacities = new String[numCapacities];
+    protected int numColour;
+
     private double displaySize;
     private double weight;
     private double height;
-    
-}
 
+    protected String processor;
+    private String camera;
 
-    
+    private String[] colours = new String[numColour];
+    private String[] capacities = new String[numCapacities];
 
-   public iPhone(String n, String proc, double pric, int numC, int ) {
-        super(n, proc, pric, numC);
-
-        
+   public iPhone(String n, doube p, int numCap, int numCol, double DS, double w, double h, String proc, String cam, String[] col, String[] cap ) {
+        super(n, p);
+        this.numCapacities = numCap;
+        this.numColour = numCol;
+        this.displaySize = DS;  ///Why Is This So Annoying
+        this.weight = w;
+        this.height = h;
+        this.processor = proc;
+        this.camera = cam;
+        this.colours = col;
+        this.capacities = cap;
     }
-    *
+    
 
 
 }
