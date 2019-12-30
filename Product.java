@@ -14,8 +14,8 @@ public abstract class Product {
     private double price;
     private String description;
     
-    protected int numColourOptions;
-    protected String[] colours = new String[numColourOptions];
+    private int numColourOptions;
+    private String[] colours = new String[numColourOptions];
 
     public NumberFormat currency = NumberFormat.getCurrencyInstance();
 

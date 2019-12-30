@@ -6,12 +6,26 @@
  * 
  * Store information about employees
  */
-/**
- * Employee
- */
-public class Employee extends Person{
+public class Employee{
+    private String firstName;
+    private String lastName;
+    private long employeeNum;
 
-    public Employee (String fName, String lName) {
-        super(fName, lName);
+    public Employee (String fName, String lName, long empNum) {
+        this.firstName = fName;
+        this.lastName = lName;
+        this.employeeNum = empNum;
+    }
+
+    public String getFirstName() {
+        return this.firstName;
+    }
+
+    public String getLastName() {
+        return this.lastName;
+    }
+
+    public long getEmployeeNum() {
+        return this.employeeNum;
     }
 }
