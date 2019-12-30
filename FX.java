@@ -50,7 +50,7 @@ public class FX {
                             play("Bootup.wav");
 
                             try {
-                                Thread.sleep(1000);
+                                Thread.sleep(500);
                             } catch (Exception e) {}
                             
                         

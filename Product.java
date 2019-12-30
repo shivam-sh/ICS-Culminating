@@ -4,38 +4,53 @@
  * 13/11/19
  * ICS 4U   NHSS
  * 
- * 
+ * Abstract class based on which all products are saved
  */
 
  import java.text.NumberFormat;
 
 public abstract class Product {
-    protected String name;
-    protected double price;
-
+    private String name;
+    private double price;
+    private String description;
+    
+    private int numColourOptions;
+    private String[] colours = new String[numColourOptions];
 
     public NumberFormat currency = NumberFormat.getCurrencyInstance();
 
     /** Create a new product type
-     * @param name
-     * @param price
+     * @param name          [String] - Name of product
+     * @param price         [double] - Price of product (CAD)
+     * @param numOfColours  [int]    - Number of colour options available
      */
-    public Product(String n, String proc, double pric, int numC) {
-        name = n;
-        processor = proc;
-        price = pric;
-        nmColour = numC;
+    public Product(String name, double price, int numOfColours) {
+        this.name = name;
+        this.price = price;
+        this.numColourOptions = numOfColours;
     }
 
     /** 
-     *  Print out tnfo for the item
+     *  Print out info for the item
      */
     public void printSpecs() {
-        System.out.println(this.name + " - " + currency.format(this.price));
     }
 
+    /**
+     *  @return     [String] - Name and price of product
+     */
     public String toString() {
-        return this.name + " - " + currency.format(this.price);
+        return this.name + "[" + currency.format(this.price) + "]";
+    }
+
+    public void setDescription(String d) {
+        this.description = d;
+    }
+    public String getDescription() {
+        if (this.description == null) {
+            return "no description available";
+        } 
+        return this.description;
     }
     
 }

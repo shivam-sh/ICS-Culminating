@@ -4,7 +4,7 @@
  * 13/11/19
  * ICS 4U   NHSS
  * 
- * 
+ * Store information about Mac based processors
  */
 public class Mac extends Product {
     
@@ -21,20 +21,71 @@ public class Mac extends Product {
     private String[] colours = new String[numColourOptions];
 
     private double weight;
+    private double displaySize;
     private double[] size = new double[3];
 
 
-    public Mac(String n, double p, int nPO, int nMO, int nGO, int nSO, int nCO, int weight, int length, int width, int height) {
-        super(n, p);
+    /**     Create new type of Mac device
+     * @param name      [String]    - Name of iOS device
+     * @param price     [double]    - Price of iOS device   
+     * @param nCO       [int]       - Number of colour options
+     * @param nPO       [int]       - Number of processor options
+     * @param nMO       [int]       - Number of memory options
+     * @param nGO       [int]       - Number of graphics options
+     * @param nSO       [int]       - Number of storage options     
+     * @param display   [double]    - Display size
+     * @param length    [double]    - Length of product (cm)
+     * @param width     [double]    - Width of product (cm)
+     * @param height    [double]    - Height of product (cm)
+     * @param weight    [double]    - Weight of product (kilograms)
+     */
+    public Mac(String name, double price, int nCO, int nPO, int nMO, int nGO, int nSO, double display, int length, int width, int height, int weight) {
+        super(name, price, nCO);
         this.numProcessorOptions = nPO;
         this.numMemoryOptions = nMO;
         this.numGraphicsOptions = nGO;
         this.numStorageOptions = nSO;
-        this.numColourOptions = nCO;
-        this.weight = weight;
+        this.displaySize = display;
         this.size[0] = length;
         this.size[1] = width;
         this.size[2] = height;
+        this.weight = weight;
+    }
+
+    /**     Print out the detailed specs for the device
+     */
+    public void printSpecs() {
+        System.out.println(super.toString() + "\nProcessor:");
+        for (int i = 0; i < this.numProcessorOptions; i++) {
+            System.out.println("\t" + this.processors[i]);
+        }
+
+        System.out.println("Memory:");
+        for (int i = 0; i < this.numMemoryOptions; i++) {
+            System.out.println("\t" + this.memory[i]);
+        }
+
+        System.out.println("Graphics:");
+        for (int i = 0; i < this.numGraphicsOptions; i++) {
+            System.out.println("\t" + this.graphics[i]);
+        }
+
+        System.out.println("Storage:");
+        for (int i = 0; i < this.numStorageOptions; i++) {
+            System.out.println("\t" + this.storage[i]);
+        }
+
+        System.out.println("Colours:");
+        for (int i = 0; i < this.numColourOptions; i++) {
+            System.out.println("\t" + this.colours[i]);
+        }
+
+        System.out.println("Display Size:");
+        System.out.println("\t" + displaySize + "\"");
+
+        System.out.println("Weight & Size:");
+        System.out.println("\t" + this.weight + " kg");
+        System.out.println("\t" + this.size[0] + "cm x " + this.size[1] + "cm x " + this.size[3] + "cm");
     }
 }
 
@@ -68,6 +119,8 @@ Storage:
     4 TB    + $1,680
 Colours: 
     Silver
+Display Size:
+    0.0"
 Weight & Size:
     18.0 kg
     52.9 x 45.0 x 21.8

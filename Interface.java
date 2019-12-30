@@ -7,16 +7,25 @@
  * To put together the user interface for the database
  */
 
+ import java.util.Scanner;
+
 public class Interface {
     public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
         FX.Logo();
         FX.Divider();
-        
-        String input = "exit";
+
+        System.out.println("Welcome to the Apple Store");
+        System.out.print("Please enter your full name: ");
+        String input = scan.nextLine();
 
         do {
             
-        } while (input != "exit");
+        } while (input == "exit");
+
+        scan.close();
+        FX.Divider();
 
         FX.Exit();
     }

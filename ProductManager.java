@@ -9,12 +9,28 @@
 public class ProductManager {
     private Product[] products = new Product[0];
     
-    public void addProduct() {
+    public void addMac(Mac m) {
         Product[] temp = new Product[products.length + 1];
 
         for (int i = 0; i < products.length; i++) {
             temp[i] = products[i];
         }
+
+        temp[products.length] = m;
+
+        products = temp;
+    }
+
+    public void addIOS(iOS d) {
+        Product[] temp = new Product[products.length + 1];
+
+        for (int i = 0; i < products.length; i++) {
+            temp[i] = products[i];
+        }
+
+        temp[products.length] = d;
+
+        products = temp;
     }
 
     public void search() {
