@@ -17,14 +17,14 @@ public class Interface {
         FX.Divider();
 
         System.out.println("Welcome to the Apple Store");
-        System.out.println("");
-        
-        String input = "exit";
+        System.out.print("Please enter your full name: ");
+        String input = scan.nextLine();
 
         do {
             
-        } while (input != "exit");
+        } while (input == "exit");
 
+        //scan.close();
         FX.Divider();
 
         FX.Exit();
