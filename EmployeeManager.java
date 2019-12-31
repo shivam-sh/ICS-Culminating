@@ -21,6 +21,19 @@ public class EmployeeManager {
         employees = temp;
     }
 
+    /** Return whether the inputted name matches the name of an employee
+     * @param input     []
+     * @return          []
+     */
+    public boolean isEmployee(String input){
+        for (int i = 0; i < employees.length; i++) {
+            if (input == employees[i].getName()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void search() {
         
     }

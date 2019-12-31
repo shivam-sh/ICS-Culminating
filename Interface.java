@@ -12,17 +12,27 @@
 public class Interface {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
+        EmployeeManager eManager = new EmployeeManager();
 
         FX.Logo();
         FX.Divider();
 
         System.out.println("Welcome to the Apple Store");
         System.out.print("Please enter your full name: ");
-        String input = scan.nextLine();
+        String name = scan.nextLine();
 
+            if (eManager.isEmployee(name)) {
+                System.out.println("Please enter your employee number: ");
+                Long eNum = scan.nextLong();
+
+                if (/*employee number matches name*/false) {
+                    
+                }
+            }
+
+        //  Do While loop for Customer
         do {
-            
-        } while (input == "exit");
+        } while (/*input == "exit"*/false);
 
         scan.close();
         FX.Divider();
