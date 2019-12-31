@@ -2,7 +2,7 @@
  * Culminating.java
  * Shivam Sharma, Mikayel Sargsyan, Daniel-Mao Mitchell
  * 13/11/19
- * ICS 4U   NHSS
+ * ICS 4U NHSS
  * 
  * To put together the user interface for the database
  */
