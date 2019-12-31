@@ -57,8 +57,8 @@ public abstract class Product {
         return this.name;
     }
 
-    public void setName(String n) {
-        this.name = n;
+    public void setName(String name) {
+        this.name = name;
     }
 }
 
