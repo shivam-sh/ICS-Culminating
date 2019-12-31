@@ -17,6 +17,10 @@ public class Employee{
         this.employeeNum = empNum;
     }
 
+    public String getName() {
+        return this.firstName + " " + this.lastName;
+    }
+
     public String getFirstName() {
         return this.firstName;
     }
