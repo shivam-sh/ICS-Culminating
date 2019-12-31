@@ -27,11 +27,27 @@ public class EmployeeManager {
      */
     public static boolean isEmployee(String input){
         for (int i = 0; i < employees.length; i++) {
-            if (input == employees[i].getName()) {
+            if (employees[i].getName().equalsIgnoreCase(input)) {
                 return true;
             }
         }
         return false;
+    }
+
+    public static boolean correctEmployeeNum(String input, long employeeNumber) {
+        if (getEmployee(input).getEmployeeNum() == employeeNumber) {
+            return true;
+        }
+        return false;
+    }
+
+    public static Employee getEmployee(String input) {
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].getName().equalsIgnoreCase(input)) {
+                return employees[i];
+            }
+        }
+        return null;
     }
 
     public static void search() {
