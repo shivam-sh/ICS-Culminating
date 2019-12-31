@@ -7,9 +7,9 @@
  * To manage the system that stores all of the products
  */
 public class ProductManager {
-    private Product[] products = new Product[0];
+    private static Product[] products = new Product[0];
     
-    public void addMac(Mac m) {
+    public static void addMac(Mac m) {
         Product[] temp = new Product[products.length + 1];
 
         for (int i = 0; i < products.length; i++) {
@@ -21,7 +21,7 @@ public class ProductManager {
         products = temp;
     }
 
-    public void addIOS(iOS d) {
+    public static void addIOS(iOS d) {
         Product[] temp = new Product[products.length + 1];
 
         for (int i = 0; i < products.length; i++) {
@@ -33,19 +33,23 @@ public class ProductManager {
         products = temp;
     }
 
-    public void search() {
+    public static Product getProduct(int i) {
+        return products[i];
+    }
+
+    public static void search() {
         
     }
 
-    public void saveArray() {
+    public static void saveArray() {
         
     }
 
-    public void loadArray() {
+    public static void loadArray() {
         
     }
 
-    public void sort() {
+    public static void sort() {
         
     }
 }
