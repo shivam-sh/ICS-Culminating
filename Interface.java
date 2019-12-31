@@ -14,6 +14,7 @@ public class Interface {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
+        String input;
 
         FX.Logo();
         FX.Divider();
@@ -22,30 +23,60 @@ public class Interface {
         System.out.print("Please enter your full name: ");
         String name = scan.nextLine();
 
-            if (EmployeeManager.isEmployee(name)) {
-                System.out.println("Please enter your employee number: ");
-                Long eNum = scan.nextLong();
+        //  If an employee may be using the database
+        if (EmployeeManager.isEmployee(name)) {
+            System.out.println("Please enter your employee number: ");
+            Long empNum = scan.nextLong();
 
-                if (/*employee number matches name*/false) {
-                    //Do Smething
-                }
-            } 
-            else {
+            if (EmployeeManager.correctEmployeeNum(name, empNum)) {
                 do {
-                    System.out.println("Apple Product Homepage");
+                    System.out.println("\nApple Employee Homepage");
+                    System.out.println("What would you like to do?");
+                    System.out.println("[Browse Products] [Add Product] [Remove Product] [Order Inventory] [Exit]");
+                    input = scan.next();
 
-                    System.out.print("Cart: ");
-                    if (cartIsEmpty()) {
-                        System.out.println("Empty");
-                    } else {
-                        for (int i = 0; i < cart.length; i++) {
-                            System.out.println( ProductManager.getProduct(cart[i]).toString() );
-                        }
+                    if (input.equalsIgnoreCase("browse products") || input.equalsIgnoreCase("browse") || input.equalsIgnoreCase("b")) {
+                        
                     }
-        
-                    System.out.println("[Search] [Checkout] [Exit]");
-                } while (/*input == "exit"*/false);
+                    if (input.equalsIgnoreCase("add product") || input.equalsIgnoreCase("add") || input.equalsIgnoreCase("a")) {
+                        
+                    }
+                    if (input.equalsIgnoreCase("remove product") || input.equalsIgnoreCase("remove") || input.equalsIgnoreCase("r")) {
+                        
+                    }
+                    if (input.equalsIgnoreCase("order inventory") || input.equalsIgnoreCase("order") || input.equalsIgnoreCase("o")) {
+                        
+                    }
+
+                } while(!input.equalsIgnoreCase("exit"));
             }
+        } 
+
+        // If a customer is using the database
+        else {
+            do {
+                System.out.println("\nApple Product Homepage");
+                System.out.print("Cart: ");
+                if (cartIsEmpty()) {
+                    System.out.println("Empty");
+                } else {
+                    for (int i = 0; i < cart.length; i++) {
+                        System.out.println( ProductManager.getProduct(cart[i]).toString() );
+                    }
+                }
+        
+                System.out.println("[Search] [Checkout] [Exit]");
+                input = scan.next();
+
+                if (input.equalsIgnoreCase("search") || input.equalsIgnoreCase("s")) {
+                    
+                }
+                if (input.equalsIgnoreCase("checkout") || input.equalsIgnoreCase("c")) {
+                    
+                }
+
+            } while (!input.equalsIgnoreCase("exit") || input.equalsIgnoreCase("e"));
+        }
 
         scan.close();
         FX.Divider();
