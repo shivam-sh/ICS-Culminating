@@ -49,7 +49,53 @@ public class ProductManager {
         
     }
 
-    public static void sort() {
+    public static void nameSort (Product[] arr) {
+        for(int i=1; i < arr.length; i++){
+            String name = arr[i].getName();
+            Product temp = arr[i];
+            int j = i - 1;
+            while(j >= 0 && compareWords(name, arr[j].getName())) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = temp; 
+        }
+    }
+// Note: it is impossible to have two words that are exactly the same
+    public static boolean compareWords(String s1, String s2) {
         
+        boolean higher;
+
+        //sets both words to lower case
+        s1 = s1.toLowerCase();
+        s2 = s2.toLowerCase();
+
+        // if first letter of word #1 is higher alphabetically than word #2 then word #1 is higher alphabetically
+        if(s1.charAt(0) < s2.charAt(0)) {
+            higher = true;
+        }
+
+        // same thing but reversed (higher <-> lower)
+        else if(s1.charAt(0) > s2.charAt(0)) {
+            higher = false;
+        }
+
+        // if you reach the last letter, then the other word must be longer and therefore lwoer alphabetically
+        else if(s1.length() == 1){
+            higher =  true;
+        }
+
+        else if(s2.length() == 1){
+            higher =  false;
+        }
+
+        // recursive method to loop back with the same words minus their first letter
+        else {
+            s1 = s1.substring(1);
+            s2 = s2.substring(1);
+            higher = compareWords(s1, s2);
+        }
+
+        return higher;
     }
 }
