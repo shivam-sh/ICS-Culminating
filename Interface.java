@@ -30,32 +30,36 @@ public class Interface {
 
             if (EmployeeManager.correctEmployeeNum(name, empNum)) {
                 do {
-                    System.out.println("\nApple Employee Homepage");
+                    System.out.println("\n\nApple Employee Homepage");
                     System.out.println("What would you like to do?");
                     System.out.println("[Browse Products] [Add Product] [Remove Product] [Order Inventory] [Exit]");
                     input = scan.next();
 
                     if (input.equalsIgnoreCase("browse products") || input.equalsIgnoreCase("browse") || input.equalsIgnoreCase("b")) {
+                        System.out.println("\nBrowse Products");
                         
                     }
                     if (input.equalsIgnoreCase("add product") || input.equalsIgnoreCase("add") || input.equalsIgnoreCase("a")) {
+                        System.out.println("\nAdd Product");
                         
                     }
                     if (input.equalsIgnoreCase("remove product") || input.equalsIgnoreCase("remove") || input.equalsIgnoreCase("r")) {
+                        System.out.println("\nRemove Product");
                         
                     }
                     if (input.equalsIgnoreCase("order inventory") || input.equalsIgnoreCase("order") || input.equalsIgnoreCase("o")) {
+                        System.out.println("\nOrder Inventory");
                         
                     }
 
-                } while(!input.equalsIgnoreCase("exit"));
+                } while(!input.equalsIgnoreCase("exit") || !input.equalsIgnoreCase("e") || !input.equalsIgnoreCase("x"));
             }
         } 
 
         // If a customer is using the database
         else {
             do {
-                System.out.println("\nApple Product Homepage");
+                System.out.println("\n\nApple Product Homepage");
                 System.out.print("Cart: ");
                 if (cartIsEmpty()) {
                     System.out.println("Empty");
@@ -69,13 +73,13 @@ public class Interface {
                 input = scan.next();
 
                 if (input.equalsIgnoreCase("search") || input.equalsIgnoreCase("s")) {
-                    
+                    System.out.println("\nSearch");
                 }
                 if (input.equalsIgnoreCase("checkout") || input.equalsIgnoreCase("c")) {
-                    
+                    System.out.println("\nCheckout");
                 }
 
-            } while (!input.equalsIgnoreCase("exit") || input.equalsIgnoreCase("e"));
+            } while (!input.equalsIgnoreCase("exit") || !input.equalsIgnoreCase("e") || !input.equalsIgnoreCase("x"));
         }
 
         scan.close();
