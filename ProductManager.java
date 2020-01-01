@@ -58,7 +58,7 @@ public class ProductManager {
                 arr[j + 1] = arr[j];
                 j--;
             }
-            arr[j + 1] = temp;
+            arr[j + 1] = temp; 
         }
     }
 // Note: it is impossible to have two words that are exactly the same
