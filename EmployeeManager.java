@@ -50,10 +50,6 @@ public class EmployeeManager {
         return null;
     }
 
-    public static void search() {
-        
-    }
-
     public static void saveArray() {
         
     }
@@ -62,7 +58,4 @@ public class EmployeeManager {
         
     }
 
-    public static void sort() {
-        
-    }
 }

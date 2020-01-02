@@ -37,8 +37,28 @@ public class ProductManager {
         return products[i];
     }
 
-    public static void search() {
-        
+    public static int search(String item, Product[] arr, int beg, int end) {
+        int index = (beg + end)/2;
+
+        if(item.equalsIgnoreCase(arr[index].getName())) {
+            return index;
+        }
+        else if(beg == end) {
+            return -1;
+        }
+
+        else {
+            if(compareWords(item, arr[index].getName())) {
+                end = index;
+                index = search(item, arr, beg, end);
+            }
+            else {
+                beg = index;
+                index = search(item, arr, beg, end);
+            }
+        }
+
+        return index;
     }
 
     public static void saveArray() {
