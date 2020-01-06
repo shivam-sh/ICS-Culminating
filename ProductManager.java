@@ -67,15 +67,14 @@ public class ProductManager {
 
     /**
      * @param item
-     * @param arr
      * @param beg
      * @param end
      * @return
      */
-    public static int search(String item, Product[] arr, int beg, int end) {
+    public static int search(String item, int beg, int end) {
         int index = (beg + end)/2;
 
-        if(item.equalsIgnoreCase(arr[index].getName())) {
+        if(item.equalsIgnoreCase(products[index].getName())) {
             return index;
         }
         else if(beg == end) {
@@ -83,13 +82,13 @@ public class ProductManager {
         }
 
         else {
-            if(compareWords(item, arr[index].getName())) {
+            if(compareWords(item, products[index].getName())) {
                 end = index;
-                index = search(item, arr, beg, end);
+                index = search(item, beg, end);
             }
             else {
                 beg = index;
-                index = search(item, arr, beg, end);
+                index = search(item, beg, end);
             }
         }
 
