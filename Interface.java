@@ -52,7 +52,7 @@ public class Interface {
                         
                     }
 
-                } while(!input.equalsIgnoreCase("exit") || !input.equalsIgnoreCase("e") || !input.equalsIgnoreCase("x"));
+                } while(!(input.equalsIgnoreCase("exit") || input.equalsIgnoreCase("e") || input.equalsIgnoreCase("x")));
             }
         } 
 
@@ -74,14 +74,13 @@ public class Interface {
 
                 if (input.equalsIgnoreCase("search") || input.equalsIgnoreCase("s")) {
                     System.out.println("\nSearch");
-
                     
                 }
                 if (input.equalsIgnoreCase("checkout") || input.equalsIgnoreCase("c")) {
                     System.out.println("\nCheckout");
                 }
 
-            } while (!input.equalsIgnoreCase("exit") || !input.equalsIgnoreCase("e") || !input.equalsIgnoreCase("x"));
+            } while (!(input.equalsIgnoreCase("exit") || input.equalsIgnoreCase("e") || input.equalsIgnoreCase("x")));
         }
 
         scan.close();

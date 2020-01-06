@@ -17,6 +17,8 @@ public class ProductManager {
         }
     }
 
+    /**
+    */
     public static void listIOS() {
         for (int i = 0; i < products.length; i++) {
             if (products[i] instanceof iOS){
@@ -25,6 +27,9 @@ public class ProductManager {
         }
     }
     
+    /**
+     * @param m
+     */
     public static void addMac(Mac m) {
         Product[] temp = new Product[products.length + 1];
 
@@ -37,6 +42,9 @@ public class ProductManager {
         products = temp;
     }
 
+    /**
+     * @param d
+     */
     public static void addIOS(iOS d) {
         Product[] temp = new Product[products.length + 1];
 
@@ -49,10 +57,21 @@ public class ProductManager {
         products = temp;
     }
 
+    /**
+     * @param i
+     * @return
+     */
     public static Product getProduct(int i) {
         return products[i];
     }
 
+    /**
+     * @param item
+     * @param arr
+     * @param beg
+     * @param end
+     * @return
+     */
     public static int search(String item, Product[] arr, int beg, int end) {
         int index = (beg + end)/2;
 
@@ -77,10 +96,14 @@ public class ProductManager {
         return index;
     }
 
+    /**
+     */
     public static void saveArray() {
         
     }
 
+    /**
+     */
     public static void loadArray() {
         
     }
@@ -97,7 +120,8 @@ public class ProductManager {
             arr[j + 1] = temp; 
         }
     }
-// Note: it is impossible to have two words that are exactly the same
+
+    // Note: it is impossible to have two words that are exactly the same
     public static boolean compareWords(String s1, String s2) {
         
         boolean higher;
