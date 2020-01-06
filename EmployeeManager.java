@@ -7,9 +7,9 @@
  * Stores and manages instances of employee objects
  */
 public class EmployeeManager {
-    private Employee[] employees = new Employee[0];
+    private static Employee[] employees = new Employee[0];
 
-    public void addEmployee(Employee e) {
+    public static void addEmployee(Employee e) {
         Employee[] temp = new Employee[employees.length + 1];
 
         for (int i = 0; i < employees.length; i++) {
@@ -25,28 +25,37 @@ public class EmployeeManager {
      * @param input     []
      * @return          []
      */
-    public boolean isEmployee(String input){
+    public static boolean isEmployee(String input){
         for (int i = 0; i < employees.length; i++) {
-            if (input == employees[i].getName()) {
+            if (employees[i].getName().equalsIgnoreCase(input)) {
                 return true;
             }
         }
         return false;
     }
 
-    public void search() {
+    public static boolean correctEmployeeNum(String input, long employeeNumber) {
+        if (getEmployee(input).getEmployeeNum() == employeeNumber) {
+            return true;
+        }
+        return false;
+    }
+
+    public static Employee getEmployee(String input) {
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].getName().equalsIgnoreCase(input)) {
+                return employees[i];
+            }
+        }
+        return null;
+    }
+
+    public static void saveArray() {
         
     }
 
-    public void saveArray() {
+    public static void loadArray() {
         
     }
 
-    public void loadArray() {
-        
-    }
-
-    public void sort() {
-        
-    }
 }
