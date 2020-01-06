@@ -30,17 +30,15 @@ public abstract class Product {
         this.numColourOptions = numOfColours;
     }
 
-    /** 
-     *  Print out info for the item
+    /** Print out info for the item
      */
-    public void printSpecs() {
-    }
+    public void printSpecs() {}
 
     /**
      *  @return     [String] - Name and price of product
      */
     public String toString() {
-        return this.name + "[" + currency.format(this.price) + "]";
+        return this.name + "[" + currency.format(this.price) + "]\n";
     }
 
     public void setDescription(String d) {

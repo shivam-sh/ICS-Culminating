@@ -74,6 +74,8 @@ public class Interface {
 
                 if (input.equalsIgnoreCase("search") || input.equalsIgnoreCase("s")) {
                     System.out.println("\nSearch");
+
+                    
                 }
                 if (input.equalsIgnoreCase("checkout") || input.equalsIgnoreCase("c")) {
                     System.out.println("\nCheckout");

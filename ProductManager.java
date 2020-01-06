@@ -8,6 +8,22 @@
  */
 public class ProductManager {
     private static Product[] products = new Product[0];
+
+    public static void listMacs() {
+        for (int i = 0; i < products.length; i++) {
+            if (products[i] instanceof Mac){
+                System.out.println(products[i].toString());
+            }
+        }
+    }
+
+    public static void listIOS() {
+        for (int i = 0; i < products.length; i++) {
+            if (products[i] instanceof iOS){
+                System.out.println(products[i].toString());
+            }
+        }
+    }
     
     public static void addMac(Mac m) {
         Product[] temp = new Product[products.length + 1];
@@ -80,7 +96,7 @@ public class ProductManager {
             higher = false;
         }
 
-        // if you reach the last letter, then the other word must be longer and therefore lwoer alphabetically
+        // if you reach the last letter, then the other word must be longer and therefore lower alphabetically
         else if(s1.length() == 1){
             higher =  true;
         }
