@@ -79,6 +79,6 @@ public class EmployeeManager {
             System.out.println("An error ocurred, the database wasn't loaded correctly. Please try again.");
         }
     }
-    }
+    
 
 }
