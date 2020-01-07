@@ -6,6 +6,7 @@
  * 
  * Stores and manages instances of employee objects
  */
+import java.io.*;
 public class EmployeeManager {
     private static Employee[] employees = new Employee[0];
 
@@ -51,11 +52,33 @@ public class EmployeeManager {
     }
 
     public static void saveArray() {
-        
+        try {
+            ObjectOutputStream outputCars = new ObjectOutputStream(new FileOutputStream("employees.dat"));
+            outputCars.writeObject(employees);
+            outputCars.close();
+            System.out.println("Successfully saved file.");
+        }
+    
+        catch (Exception e) {
+            System.out.println("An error ocurred, the file wasn't updated correctly. Please try again later.");
+        }
     }
 
     public static void loadArray() {
-        
+        try {
+            //  Load the "cars" data based 3D array
+            FileInputStream carsIn = new FileInputStream("employees.dat");
+            ObjectInputStream in = new ObjectInputStream(carsIn);
+            employees = (Employee[]) in.readObject();
+            in.close();
+            carsIn.close();
+
+            System.out.println("Database Loaded Without Issues");
+        }
+        catch (Exception e) {
+            System.out.println("An error ocurred, the database wasn't loaded correctly. Please try again.");
+        }
+    }
     }
 
 }
