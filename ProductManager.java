@@ -6,7 +6,12 @@
  * 
  * To manage the system that stores all of the products
  */
-public class ProductManager {
+
+ import java.io.*;
+
+public class ProductManager implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     private static Product[] products = new Product[0];
 
     public static void listMacs() {
@@ -95,16 +100,38 @@ public class ProductManager {
         return index;
     }
 
-    /**
+    /** Save employees database to file
      */
     public static void saveArray() {
-        
+        try {
+            //  Save the "products" database
+            ObjectOutputStream outputCars = new ObjectOutputStream(new FileOutputStream("products.dat"));
+            outputCars.writeObject(products);
+            outputCars.close();
+
+            System.out.println("Database Saved");
+        }
+        catch (Exception e) {
+            System.out.println("An error ocurred, the database wasn't updated correctly. Please try again later.");
+        }
     }
 
-    /**
+    /** Load employees database from file
      */
     public static void loadArray() {
-        
+        try {
+            //  Load the "cars" database
+            FileInputStream carsIn = new FileInputStream("products.dat");
+            ObjectInputStream in = new ObjectInputStream(carsIn);
+            products = (Product[]) in.readObject();
+            in.close();
+            carsIn.close();
+
+            System.out.println("Database Loaded Without Issues");
+        }
+        catch (Exception e) {
+            System.out.println("An error ocurred, the database wasn't loaded correctly. Please try again.");
+        }
     }
 
     public static void nameSort (Product[] arr) {
