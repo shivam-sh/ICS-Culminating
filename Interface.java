@@ -16,8 +16,8 @@ public class Interface {
         Scanner scan = new Scanner(System.in);
         String input;
 
-        FX.Logo();
-        FX.Divider();
+        FX.Bootup();
+        FX.Clear();
 
         System.out.println("Welcome to the Apple Store");
         System.out.print("Please enter your full name: ");
@@ -25,29 +25,35 @@ public class Interface {
 
         //  If an employee may be using the database
         if (EmployeeManager.isEmployee(name)) {
+            FX.Clear();
             System.out.println("Please enter your employee number: ");
             Long empNum = scan.nextLong();
 
             if (EmployeeManager.correctEmployeeNum(name, empNum)) {
                 do {
+                    FX.Clear();
                     System.out.println("\n\nApple Employee Homepage");
                     System.out.println("What would you like to do?");
                     System.out.println("[Browse Products] [Add Product] [Remove Product] [Order Inventory] [Exit]");
                     input = scan.next();
 
                     if (input.equalsIgnoreCase("browse products") || input.equalsIgnoreCase("browse") || input.equalsIgnoreCase("b")) {
+                        FX.Clear();
                         System.out.println("\nBrowse Products");
                         
                     }
                     if (input.equalsIgnoreCase("add product") || input.equalsIgnoreCase("add") || input.equalsIgnoreCase("a")) {
+                        FX.Clear();
                         System.out.println("\nAdd Product");
                         
                     }
                     if (input.equalsIgnoreCase("remove product") || input.equalsIgnoreCase("remove") || input.equalsIgnoreCase("r")) {
+                        FX.Clear();
                         System.out.println("\nRemove Product");
                         
                     }
                     if (input.equalsIgnoreCase("order inventory") || input.equalsIgnoreCase("order") || input.equalsIgnoreCase("o")) {
+                        FX.Clear();
                         System.out.println("\nOrder Inventory");
                         
                     }
@@ -59,6 +65,7 @@ public class Interface {
         // If a customer is using the database
         else {
             do {
+                FX.Clear();
                 System.out.println("\n\nApple Product Homepage");
                 System.out.print("Cart: ");
                 if (cartIsEmpty()) {
@@ -73,10 +80,12 @@ public class Interface {
                 input = scan.next();
 
                 if (input.equalsIgnoreCase("search") || input.equalsIgnoreCase("s")) {
+                    FX.Clear();
                     System.out.println("\nSearch");
                     
                 }
                 if (input.equalsIgnoreCase("checkout") || input.equalsIgnoreCase("c")) {
+                    FX.Clear();
                     System.out.println("\nCheckout");
                 }
 
