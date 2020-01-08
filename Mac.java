@@ -39,7 +39,7 @@ public class Mac extends Product {
      * @param height    [double]    - Height of product (cm)
      * @param weight    [double]    - Weight of product (kilograms)
      */
-    public Mac(String name, double price, int nCO, int nPO, int nMO, int nGO, int nSO, double display, int length, int width, int height, int weight) {
+    public Mac(String name, double price, int nCO, int nPO, int nMO, int nGO, int nSO, double display, double length, double width, double height, double weight) {
         super(name, price, nCO);
         this.numProcessorOptions = nPO;
         this.numMemoryOptions = nMO;

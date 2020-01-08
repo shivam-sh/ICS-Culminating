@@ -37,7 +37,7 @@ public class ProductManager implements Serializable {
     /**
      * @param m
      */
-    public static void addMac(String name, double price, int nCO, int nPO, int nMO, int nGO, int nSO, double display, int length, int width, int height, int weight) {
+    public static void addMac() {
         Product[] temp = new Product[products.length + 1];
         int productNum = 0;
 
@@ -46,37 +46,73 @@ public class ProductManager implements Serializable {
             productNum = i;
         }
 
+        System.out.println("\nEnter the device name: ");
+        String name = scan.nextLine();
+
+        System.out.println("\nEnter the price (ex. 499.99): ");
+        Double price = inputValidationDouble(scan.nextLine());
+
+        System.out.println("\nEnter the number of colour options: ");
+        int nCO = inputValidationInt(scan.nextLine());
+
+        System.out.println("\nEnter the number of processor options: ");
+        int nPO = inputValidationInt(scan.nextLine());
+
+        System.out.println("\nEnter the number of memory options: ");
+        int nMO = inputValidationInt(scan.nextLine());
+
+        System.out.println("\nEnter the number of graphics options: ");
+        int nGO = inputValidationInt(scan.nextLine());
+
+        System.out.println("\nEnter the number of storage options: ");
+        int nSO = inputValidationInt(scan.nextLine());
+
+        System.out.println("\nEnter the display size in inches: ");
+        Double display = inputValidationDouble(scan.nextLine());
+
+        System.out.println("\nEnter the device's length (mm): ");
+        Double length = inputValidationDouble(scan.nextLine());
+
+        System.out.println("\nEnter the device's width (mm): ");
+        Double width = inputValidationDouble(scan.nextLine());
+
+        System.out.println("\nEnter the device's height (mm): ");
+        Double height = inputValidationDouble(scan.nextLine());
+
+        System.out.println("\nEnter the device's weight (g): ");
+        Double weight = inputValidationDouble(scan.nextLine());
+
         temp[products.length] = new Mac(name, price, nCO, nPO, nMO, nGO, nSO, display, length, width, height, weight);
 
         for (int i = 0; i < nCO; i++) {
-            System.out.println(" Enter colour option number " + (i + 1) + ": ");
+            System.out.println("Enter colour option [" + (i + 1) + "]: ");
             ((Mac) temp[productNum]).addColourOption(scan.nextLine());
         }
 
         for (int i = 0; i < nPO; i++) {
-            System.out.println(" Enter processor option number " + (i + 1) + ": ");
+            System.out.println("Enter processor option [" + (i + 1) + "]: ");
             ((Mac) temp[productNum]).addProcessorOption(scan.nextLine());
         }
 
         for (int i = 0; i < nMO; i++) {
-            System.out.println(" Enter memory option number " + (i + 1) + ": ");
+            System.out.println("Enter memory option [" + (i + 1) + "]: ");
             ((Mac) temp[productNum]).addMemoryOption(scan.nextLine());
         }
 
         for (int i = 0; i < nGO; i++) {
-            System.out.println(" Enter graphics option number " + (i + 1) + ": ");
+            System.out.println("Enter graphics option [" + (i + 1) + "]: ");
             ((Mac) temp[productNum]).addGraphicsOption(scan.nextLine());
         }
 
         for (int i = 0; i < nSO; i++) {
-            System.out.println(" Enter storage option number " + (i + 1) + ": ");
+            System.out.println("Enter storage option [" + (i + 1) + "]: ");
             ((Mac) temp[productNum]).addStorageOption(scan.nextLine());
         }
 
         products = temp;
     }
 
-    public static void addIOS(String name, double price, int nCO, int nSO, String cam, String cpu, double display, double length, double width, double height, double weight) {
+    public static void addIOS() {
         Product[] temp = new Product[products.length + 1];
         int productNum = 0;
 
@@ -85,16 +121,48 @@ public class ProductManager implements Serializable {
 
             productNum = i;
         }
+        System.out.println("\nEnter the device name: ");
+        String name = scan.nextLine();
+
+        System.out.println("\nEnter the price (ex. 499.99): ");
+        Double price = inputValidationDouble(scan.nextLine());
+
+        System.out.println("\nEnter the number of colour options: ");
+        int nCO = inputValidationInt(scan.nextLine());
+
+        System.out.println("\nEnter the number of storage options: ");
+        int nSO = inputValidationInt(scan.nextLine());
+
+        System.out.println("\nEnter the camera specs (ex. 12MP, 8MP): ");
+        String cam = scan.nextLine();
+
+        System.out.println("\nEnter the cpu: ");
+        String cpu = scan.nextLine();
+
+        System.out.println("\nEnter the display size in inches: ");
+        Double display = inputValidationDouble(scan.nextLine());
+
+        System.out.println("\nEnter the device's length (mm): ");
+        Double length = inputValidationDouble(scan.nextLine());
+
+        System.out.println("\nEnter the device's width (mm): ");
+        Double width = inputValidationDouble(scan.nextLine());
+
+        System.out.println("\nEnter the device's height (mm): ");
+        Double height = inputValidationDouble(scan.nextLine());
+
+        System.out.println("\nEnter the device's weight (g): ");
+        Double weight = inputValidationDouble(scan.nextLine());
 
         temp[products.length] = new iOS(name, price, nCO, nSO, cam, cpu, display, length, width, height, weight);
 
         for (int i = 0; i < nCO; i++) {
-            System.out.println(" Enter colour option number " + (i + 1) + ": ");
+            System.out.println("Enter colour option [ " + (i + 1) + "]: ");
             ((iOS) temp[productNum]).addColourOption(scan.nextLine());
         }
 
         for (int i = 0; i < nSO; i++) {
-            System.out.println(" Enter storage option number " + (i + 1) + ": ");
+            System.out.println("Enter storage option [" + (i + 1) + "]: ");
             ((iOS) temp[productNum]).addStorageOption(scan.nextLine());
         }
         products = temp;
@@ -221,5 +289,27 @@ public class ProductManager implements Serializable {
         }
 
         return higher;
+    }
+
+    //  Input validation methods to prevent code crashing errors due to invalid inputs
+    public static double inputValidationDouble(String s){
+        double num = 0;
+        try {
+            num = Double.parseDouble(s);
+        } catch(Exception e) {
+            num = 69;
+        }
+        return num;
+    }
+
+    //  Input validation methods to prevent code crashing errors due to invalid inputs
+    public static int inputValidationInt(String s){
+        int num = 0;
+        try {
+            num = Integer.parseInt(s);
+        } catch(Exception e) {
+            num = 69;
+        }
+        return num;
     }
 }
