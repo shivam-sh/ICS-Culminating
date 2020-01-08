@@ -52,6 +52,61 @@ public class Mac extends Product {
         this.weight = weight;
     }
 
+    public void addColourOption(String c) {
+        boolean searching = true;
+        for (int i = 0; i < colours.length && searching; i++) {
+            if (colours[i] == null) {
+                colours[i] = c;
+
+                searching = false;
+            }
+        }
+    }
+
+    public void addProcessorOption(String p) {
+        boolean searching = true;
+        for (int i = 0; i < processors.length && searching; i++) {
+            if (processors[i] == null) {
+                processors[i] = p;
+
+                searching = false;
+            }
+        }
+    }
+
+    public void addMemoryOption(String m) {
+        boolean searching = true;
+        for (int i = 0; i < memory.length && searching; i++) {
+            if (memory[i] == null) {
+                memory[i] = m;
+
+                searching = false;
+            }
+        }
+    }
+
+    public void addGraphicsOption(String g) {
+        boolean searching = true;
+        for (int i = 0; i < graphics.length && searching; i++) {
+            if (graphics[i] == null) {
+                graphics[i] = g;
+
+                searching = false;
+            }
+        }
+    }
+
+    public void addStorageOption(String s) {
+        boolean searching = true;
+        for (int i = 0; i < storage.length && searching; i++) {
+            if (storage[i] == null) {
+                storage[i] = s;
+
+                searching = false;
+            }
+        }
+    }
+
     /**     Print out the detailed specs for the device
      */
     public void printSpecs() {

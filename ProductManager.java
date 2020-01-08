@@ -8,11 +8,13 @@
  */
 
  import java.io.*;
+ import java.util.Scanner;
 
 public class ProductManager implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private static Product[] products = new Product[0];
+    static Scanner scan = new Scanner(System.in);
 
     public static void listMacs() {
         for (int i = 0; i < products.length; i++) {
@@ -35,30 +37,66 @@ public class ProductManager implements Serializable {
     /**
      * @param m
      */
-    public static void addMac(Mac m) {
+    public static void addMac(String name, double price, int nCO, int nPO, int nMO, int nGO, int nSO, double display, int length, int width, int height, int weight) {
         Product[] temp = new Product[products.length + 1];
+        int productNum = 0;
 
         for (int i = 0; i < products.length; i++) {
             temp[i] = products[i];
+            productNum = i;
         }
 
-        temp[products.length] = m;
+        temp[products.length] = new Mac(name, price, nCO, nPO, nMO, nGO, nSO, display, length, width, height, weight);
+
+        for (int i = 0; i < nCO; i++) {
+            System.out.println(" Enter colour option number " + (i + 1) + ": ");
+            ((Mac) temp[productNum]).addColourOption(scan.nextLine());
+        }
+
+        for (int i = 0; i < nPO; i++) {
+            System.out.println(" Enter processor option number " + (i + 1) + ": ");
+            ((Mac) temp[productNum]).addProcessorOption(scan.nextLine());
+        }
+
+        for (int i = 0; i < nMO; i++) {
+            System.out.println(" Enter memory option number " + (i + 1) + ": ");
+            ((Mac) temp[productNum]).addMemoryOption(scan.nextLine());
+        }
+
+        for (int i = 0; i < nGO; i++) {
+            System.out.println(" Enter graphics option number " + (i + 1) + ": ");
+            ((Mac) temp[productNum]).addGraphicsOption(scan.nextLine());
+        }
+
+        for (int i = 0; i < nSO; i++) {
+            System.out.println(" Enter storage option number " + (i + 1) + ": ");
+            ((Mac) temp[productNum]).addStorageOption(scan.nextLine());
+        }
 
         products = temp;
     }
 
-    /**
-     * @param d
-     */
-    public static void addIOS(iOS d) {
+    public static void addIOS(String name, double price, int nCO, int nSO, String cam, String cpu, double display, double length, double width, double height, double weight) {
         Product[] temp = new Product[products.length + 1];
+        int productNum = 0;
 
         for (int i = 0; i < products.length; i++) {
             temp[i] = products[i];
+
+            productNum = i;
         }
 
-        temp[products.length] = d;
+        temp[products.length] = new iOS(name, price, nCO, nSO, cam, cpu, display, length, width, height, weight);
 
+        for (int i = 0; i < nCO; i++) {
+            System.out.println(" Enter colour option number " + (i + 1) + ": ");
+            ((iOS) temp[productNum]).addColourOption(scan.nextLine());
+        }
+
+        for (int i = 0; i < nSO; i++) {
+            System.out.println(" Enter storage option number " + (i + 1) + ": ");
+            ((iOS) temp[productNum]).addStorageOption(scan.nextLine());
+        }
         products = temp;
     }
 

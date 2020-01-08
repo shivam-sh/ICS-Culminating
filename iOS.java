@@ -45,6 +45,28 @@ public class iOS extends Product {
         this.weight = weight;
     }
 
+    public void addColourOption(String s) {
+        boolean searching = true;
+        for (int i = 0; i < colours.length && searching; i++) {
+            if (colours[i] == null) {
+                colours[i] = s;
+
+                searching = false;
+            }
+        }
+    }
+
+    public void addStorageOption(String s) {
+        boolean searching = true;
+        for (int i = 0; i < storage.length && searching; i++) {
+            if (storage[i] == null) {
+                storage[i] = s;
+
+                searching = false;
+            }
+        }
+    }
+
     /**     Print out the detailed specs for the device
      */
     public void printSpecs() {
