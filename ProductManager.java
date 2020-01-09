@@ -35,7 +35,6 @@ public class ProductManager implements Serializable {
     }
     
     /**
-     * @param m
      */
     public static void addMac() {
         Product[] temp = new Product[products.length + 1];
@@ -46,72 +45,81 @@ public class ProductManager implements Serializable {
             productNum = i;
         }
 
-        System.out.println("\nEnter the device name: ");
+        FX.Clear();
+
+        System.out.println("\nEnter the device name - ");
         String name = scan.nextLine();
 
-        System.out.println("\nEnter the price (ex. 499.99): ");
+        System.out.println("\nEnter the price (ex. 499.99) - ");
         Double price = inputValidationDouble(scan.nextLine());
 
-        System.out.println("\nEnter the number of colour options: ");
+        System.out.println("\nEnter the number of colour options - ");
         int nCO = inputValidationInt(scan.nextLine());
 
-        System.out.println("\nEnter the number of processor options: ");
+        System.out.println("\nEnter the number of processor options - ");
         int nPO = inputValidationInt(scan.nextLine());
 
-        System.out.println("\nEnter the number of memory options: ");
+        System.out.println("\nEnter the number of memory options - ");
         int nMO = inputValidationInt(scan.nextLine());
 
-        System.out.println("\nEnter the number of graphics options: ");
+        System.out.println("\nEnter the number of graphics options - ");
         int nGO = inputValidationInt(scan.nextLine());
 
-        System.out.println("\nEnter the number of storage options: ");
+        System.out.println("\nEnter the number of storage options - ");
         int nSO = inputValidationInt(scan.nextLine());
 
-        System.out.println("\nEnter the display size in inches: ");
+        System.out.println("\nEnter the display size in inches - ");
         Double display = inputValidationDouble(scan.nextLine());
 
-        System.out.println("\nEnter the device's length (mm): ");
+        System.out.println("\nEnter the device's length (mm) - ");
         Double length = inputValidationDouble(scan.nextLine());
 
-        System.out.println("\nEnter the device's width (mm): ");
+        System.out.println("\nEnter the device's width (mm) - ");
         Double width = inputValidationDouble(scan.nextLine());
 
-        System.out.println("\nEnter the device's height (mm): ");
+        System.out.println("\nEnter the device's height (mm) - ");
         Double height = inputValidationDouble(scan.nextLine());
 
-        System.out.println("\nEnter the device's weight (g): ");
+        System.out.println("\nEnter the device's weight (g) - ");
         Double weight = inputValidationDouble(scan.nextLine());
 
         temp[products.length] = new Mac(name, price, nCO, nPO, nMO, nGO, nSO, display, length, width, height, weight);
 
+        FX.Clear();
         for (int i = 0; i < nCO; i++) {
-            System.out.println("Enter colour option [" + (i + 1) + "]: ");
+            System.out.println("\nEnter colour option " + (i + 1) + " - ");
             ((Mac) temp[productNum]).addColourOption(scan.nextLine());
         }
 
+        FX.Clear();
         for (int i = 0; i < nPO; i++) {
-            System.out.println("Enter processor option [" + (i + 1) + "]: ");
+            System.out.println("\nEnter processor option " + (i + 1) + " - ");
             ((Mac) temp[productNum]).addProcessorOption(scan.nextLine());
         }
 
+        FX.Clear();
         for (int i = 0; i < nMO; i++) {
-            System.out.println("Enter memory option [" + (i + 1) + "]: ");
+            System.out.println("\nEnter memory option " + (i + 1) + "(ex. \"16 GB\") - ");
             ((Mac) temp[productNum]).addMemoryOption(scan.nextLine());
         }
 
+        FX.Clear();
         for (int i = 0; i < nGO; i++) {
-            System.out.println("Enter graphics option [" + (i + 1) + "]: ");
+            System.out.println("\nEnter graphics option " + (i + 1) + " - ");
             ((Mac) temp[productNum]).addGraphicsOption(scan.nextLine());
         }
 
+        FX.Clear();
         for (int i = 0; i < nSO; i++) {
-            System.out.println("Enter storage option [" + (i + 1) + "]: ");
+            System.out.println("\nEnter storage option " + (i + 1) + "(ex. \"1 TB\") - ");
             ((Mac) temp[productNum]).addStorageOption(scan.nextLine());
         }
 
         products = temp;
     }
 
+    /**
+     */
     public static void addIOS() {
         Product[] temp = new Product[products.length + 1];
         int productNum = 0;
@@ -121,48 +129,53 @@ public class ProductManager implements Serializable {
 
             productNum = i;
         }
-        System.out.println("\nEnter the device name: ");
+
+        FX.Clear();
+
+        System.out.print("\nEnter the device name - ");
         String name = scan.nextLine();
 
-        System.out.println("\nEnter the price (ex. 499.99): ");
+        System.out.print("\nEnter the price (ex. 499.99) - ");
         Double price = inputValidationDouble(scan.nextLine());
 
-        System.out.println("\nEnter the number of colour options: ");
+        System.out.print("\nEnter the number of colour options - ");
         int nCO = inputValidationInt(scan.nextLine());
 
-        System.out.println("\nEnter the number of storage options: ");
+        System.out.print("\nEnter the number of storage options - ");
         int nSO = inputValidationInt(scan.nextLine());
 
-        System.out.println("\nEnter the camera specs (ex. 12MP, 8MP): ");
+        System.out.print("\nEnter the camera specs (ex. 12MP, 8MP) - ");
         String cam = scan.nextLine();
 
-        System.out.println("\nEnter the cpu: ");
+        System.out.print("\nEnter the cpu - ");
         String cpu = scan.nextLine();
 
-        System.out.println("\nEnter the display size in inches: ");
+        System.out.print("\nEnter the display size in inches - ");
         Double display = inputValidationDouble(scan.nextLine());
 
-        System.out.println("\nEnter the device's length (mm): ");
+        System.out.print("\nEnter the device's length (cm) - ");
         Double length = inputValidationDouble(scan.nextLine());
 
-        System.out.println("\nEnter the device's width (mm): ");
+        System.out.print("\nEnter the device's width (cm) - ");
         Double width = inputValidationDouble(scan.nextLine());
 
-        System.out.println("\nEnter the device's height (mm): ");
+        System.out.print("\nEnter the device's height (cm) - ");
         Double height = inputValidationDouble(scan.nextLine());
 
-        System.out.println("\nEnter the device's weight (g): ");
+        System.out.print("\nEnter the device's weight (g) - ");
         Double weight = inputValidationDouble(scan.nextLine());
 
         temp[products.length] = new iOS(name, price, nCO, nSO, cam, cpu, display, length, width, height, weight);
 
+        FX.Clear();
         for (int i = 0; i < nCO; i++) {
-            System.out.println("Enter colour option [ " + (i + 1) + "]: ");
+            System.out.print("\nEnter colour option [ " + (i + 1) + "] - ");
             ((iOS) temp[productNum]).addColourOption(scan.nextLine());
         }
 
+        FX.Clear();
         for (int i = 0; i < nSO; i++) {
-            System.out.println("Enter storage option [" + (i + 1) + "]: ");
+            System.out.print("\nEnter storage option [" + (i + 1) + "] - ");
             ((iOS) temp[productNum]).addStorageOption(scan.nextLine());
         }
         products = temp;
@@ -177,7 +190,7 @@ public class ProductManager implements Serializable {
     }
 
     /**
-     * @param item
+     * @param item      
      * @param beg
      * @param end
      * @return
@@ -206,7 +219,7 @@ public class ProductManager implements Serializable {
         return index;
     }
 
-    /** Save employees database to file
+    /** Save products database to file
      */
     public static void saveArray() {
         try {
@@ -218,15 +231,16 @@ public class ProductManager implements Serializable {
             System.out.println("Database Saved");
         }
         catch (Exception e) {
-            System.out.println("An error ocurred, the database wasn't updated correctly. Please try again later.");
+            System.out.println("An error ocurred, the database wasn't updated correctly. Please try again later.\n\n");
+            e.printStackTrace();
         }
     }
 
-    /** Load employees database from file
+    /** Load products database from file
      */
     public static void loadArray() {
         try {
-            //  Load the "cars" database
+            //  Load the "products" database
             FileInputStream carsIn = new FileInputStream("products.dat");
             ObjectInputStream in = new ObjectInputStream(carsIn);
             products = (Product[]) in.readObject();
@@ -236,7 +250,8 @@ public class ProductManager implements Serializable {
             System.out.println("Database Loaded Without Issues");
         }
         catch (Exception e) {
-            System.out.println("An error ocurred, the database wasn't loaded correctly. Please try again.");
+            System.out.println("An error ocurred, the database wasn't loaded correctly. Please try again.\n\n");
+            e.printStackTrace();
         }
     }
 
