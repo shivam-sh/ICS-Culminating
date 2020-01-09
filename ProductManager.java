@@ -47,71 +47,71 @@ public class ProductManager implements Serializable {
 
         FX.Clear();
 
-        System.out.println("\nEnter the device name - ");
+        System.out.print("\nEnter the device name - ");
         String name = scan.nextLine();
 
-        System.out.println("\nEnter the price (ex. 499.99) - ");
+        System.out.print("\nEnter the price (ex. 499.99) - ");
         Double price = inputValidationDouble(scan.nextLine());
 
-        System.out.println("\nEnter the number of colour options - ");
+        System.out.print("\nEnter the number of colour options - ");
         int nCO = inputValidationInt(scan.nextLine());
 
-        System.out.println("\nEnter the number of processor options - ");
+        System.out.print("\nEnter the number of processor options - ");
         int nPO = inputValidationInt(scan.nextLine());
 
-        System.out.println("\nEnter the number of memory options - ");
+        System.out.print("\nEnter the number of memory options - ");
         int nMO = inputValidationInt(scan.nextLine());
 
-        System.out.println("\nEnter the number of graphics options - ");
+        System.out.print("\nEnter the number of graphics options - ");
         int nGO = inputValidationInt(scan.nextLine());
 
-        System.out.println("\nEnter the number of storage options - ");
+        System.out.print("\nEnter the number of storage options - ");
         int nSO = inputValidationInt(scan.nextLine());
 
-        System.out.println("\nEnter the display size in inches - ");
+        System.out.print("\nEnter the display size in inches - ");
         Double display = inputValidationDouble(scan.nextLine());
 
-        System.out.println("\nEnter the device's length (mm) - ");
+        System.out.print("\nEnter the device's length (cm) - ");
         Double length = inputValidationDouble(scan.nextLine());
 
-        System.out.println("\nEnter the device's width (mm) - ");
+        System.out.print("\nEnter the device's width (cm) - ");
         Double width = inputValidationDouble(scan.nextLine());
 
-        System.out.println("\nEnter the device's height (mm) - ");
+        System.out.print("\nEnter the device's height (cm) - ");
         Double height = inputValidationDouble(scan.nextLine());
 
-        System.out.println("\nEnter the device's weight (g) - ");
+        System.out.print("\nEnter the device's weight (kg) - ");
         Double weight = inputValidationDouble(scan.nextLine());
 
         temp[products.length] = new Mac(name, price, nCO, nPO, nMO, nGO, nSO, display, length, width, height, weight);
 
         FX.Clear();
         for (int i = 0; i < nCO; i++) {
-            System.out.println("\nEnter colour option " + (i + 1) + " - ");
+            System.out.print("\nEnter colour option " + (i + 1) + " - ");
             ((Mac) temp[productNum]).addColourOption(scan.nextLine());
         }
 
         FX.Clear();
         for (int i = 0; i < nPO; i++) {
-            System.out.println("\nEnter processor option " + (i + 1) + " - ");
+            System.out.print("\nEnter processor option " + (i + 1) + " - ");
             ((Mac) temp[productNum]).addProcessorOption(scan.nextLine());
         }
 
         FX.Clear();
         for (int i = 0; i < nMO; i++) {
-            System.out.println("\nEnter memory option " + (i + 1) + "(ex. \"16 GB\") - ");
+            System.out.print("\nEnter memory option " + (i + 1) + "(ex. \"16 GB\") - ");
             ((Mac) temp[productNum]).addMemoryOption(scan.nextLine());
         }
 
         FX.Clear();
         for (int i = 0; i < nGO; i++) {
-            System.out.println("\nEnter graphics option " + (i + 1) + " - ");
+            System.out.print("\nEnter graphics option " + (i + 1) + " - ");
             ((Mac) temp[productNum]).addGraphicsOption(scan.nextLine());
         }
 
         FX.Clear();
         for (int i = 0; i < nSO; i++) {
-            System.out.println("\nEnter storage option " + (i + 1) + "(ex. \"1 TB\") - ");
+            System.out.print("\nEnter storage option " + (i + 1) + "(ex. \"1 TB\") - ");
             ((Mac) temp[productNum]).addStorageOption(scan.nextLine());
         }
 
@@ -153,13 +153,13 @@ public class ProductManager implements Serializable {
         System.out.print("\nEnter the display size in inches - ");
         Double display = inputValidationDouble(scan.nextLine());
 
-        System.out.print("\nEnter the device's length (cm) - ");
+        System.out.print("\nEnter the device's length (mm) - ");
         Double length = inputValidationDouble(scan.nextLine());
 
-        System.out.print("\nEnter the device's width (cm) - ");
+        System.out.print("\nEnter the device's width (mm) - ");
         Double width = inputValidationDouble(scan.nextLine());
 
-        System.out.print("\nEnter the device's height (cm) - ");
+        System.out.print("\nEnter the device's height (mm) - ");
         Double height = inputValidationDouble(scan.nextLine());
 
         System.out.print("\nEnter the device's weight (g) - ");
@@ -255,16 +255,16 @@ public class ProductManager implements Serializable {
         }
     }
 
-    public static void nameSort (Product[] arr) {
-        for(int i=1; i < arr.length; i++){
-            String name = arr[i].getName();
-            Product temp = arr[i];
+    public static void nameSort() {
+        for(int i=1; i < products.length; i++){
+            String name = products[i].getName();
+            Product temp = products[i];
             int j = i - 1;
-            while(j >= 0 && compareWords(name, arr[j].getName())) {
-                arr[j + 1] = arr[j];
+            while(j >= 0 && compareWords(name, products[j].getName())) {
+                products[j + 1] = products[j];
                 j--;
             }
-            arr[j + 1] = temp; 
+            products[j + 1] = temp; 
         }
     }
 
