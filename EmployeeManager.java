@@ -10,7 +10,9 @@
  import java.io.*;
  import java.util.Scanner;
 
-public class EmployeeManager {
+public class EmployeeManager implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     //  Initialize database to stora ll employees as well as scanner
     private static Employee[] employees = new Employee[0];

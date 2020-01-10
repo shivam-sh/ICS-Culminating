@@ -7,9 +7,13 @@
  * Abstract class based on which all products are saved
  */
 
- import java.text.NumberFormat;
+ import java.io.Serializable;
+import java.text.NumberFormat;
 
-public abstract class Product {
+public abstract class Product implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     private String name;
     private double price;
     private String description;

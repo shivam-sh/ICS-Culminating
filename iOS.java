@@ -6,7 +6,12 @@
  * 
  * Store information about iOS based devices
  */
-public class iOS extends Product {
+
+ import java.io.Serializable;
+
+public class iOS extends Product implements Serializable{
+
+    private static final long serialVersionUID = 1L;
     
     private int numStorageOptions;
 

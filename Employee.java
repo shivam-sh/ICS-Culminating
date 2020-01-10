@@ -1,3 +1,5 @@
+import java.io.Serializable;
+
 /**
  * Employee.java
  * Shivam Sharma, Mikayel Sargsyan, Daniel-Mao Mitchell
@@ -6,7 +8,10 @@
  * 
  * Store information about employees
  */
-public class Employee{
+public class Employee implements Serializable{
+
+    private static final long serialVersionUID = 1L;
+
     private String firstName;
     private String lastName;
     private long employeeNum;

@@ -7,6 +7,8 @@
  * Store information about Mac based processors
  */
 public class Mac extends Product {
+
+    private static final long serialVersionUID = 1L;
     
     private int numProcessorOptions;
     private int numMemoryOptions;
