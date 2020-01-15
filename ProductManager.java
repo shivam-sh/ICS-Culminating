@@ -114,7 +114,6 @@ public class ProductManager implements Serializable {
             System.out.print("\nEnter storage option " + (i + 1) + "(ex. \"1 TB\") - ");
             ((Mac) temp[productNum]).addStorageOption(scan.nextLine());
         }
-
         products = temp;
     }
 
@@ -190,13 +189,13 @@ public class ProductManager implements Serializable {
     }
 
     /**
-     * @param item      
-     * @param beg
-     * @param end
+     * @param item  [String]    - Name of th
+     * @param beg   [int]       - Just enter 0
+     * @param end   [int]       - Enter ProductManager.getLength()
      * @return
      */
     public static int search(String item, int beg, int end) {
-        int index = (beg + end)/2;
+        int index = (beg + end) / 2;
 
         if(item.equalsIgnoreCase(products[index].getName())) {
             return index;
@@ -217,6 +216,14 @@ public class ProductManager implements Serializable {
         }
 
         return index;
+    }
+
+    public static int getNumItems() {
+        int num = 0;
+        for (int i = 0; i < products.length; i++) {
+            num++;
+        }
+        return num;
     }
 
     /** Save products database to file
@@ -304,6 +311,10 @@ public class ProductManager implements Serializable {
         }
 
         return higher;
+    }
+
+    public static int getLength() {
+        return products.length;
     }
 
     //  Input validation methods to prevent code crashing errors due to invalid inputs

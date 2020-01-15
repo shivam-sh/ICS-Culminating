@@ -9,18 +9,12 @@
 public class Mac extends Product {
 
     private static final long serialVersionUID = 1L;
-    
-    private int numProcessorOptions;
-    private int numMemoryOptions;
-    private int numGraphicsOptions;
-    private int numStorageOptions;
-    private int numColourOptions;
 
-    private String[] processors = new String[numProcessorOptions];
-    private String[] memory = new String[numMemoryOptions];
-    private String[] graphics = new String[numGraphicsOptions];
-    private String[] storage = new String[numStorageOptions];
-    private String[] colours = new String[numColourOptions];
+    private String[] processors;
+    private String[] memory;
+    private String[] graphics;
+    private String[] storage;
+    private String[] colours;
 
     private double weight;
     private double displaySize;
@@ -43,15 +37,20 @@ public class Mac extends Product {
      */
     public Mac(String name, double price, int nCO, int nPO, int nMO, int nGO, int nSO, double display, double length, double width, double height, double weight) {
         super(name, price, nCO);
-        this.numProcessorOptions = nPO;
-        this.numMemoryOptions = nMO;
-        this.numGraphicsOptions = nGO;
-        this.numStorageOptions = nSO;
+
         this.displaySize = display;
         this.size[0] = length;
         this.size[1] = width;
         this.size[2] = height;
         this.weight = weight;
+
+        processors = new String[nPO];
+        memory = new String[nMO];
+        graphics = new String[nGO];
+        storage = new String[nSO];
+        colours = new String[nCO];
+
+        System.out.println(processors.length);
     }
 
     public void addColourOption(String c) {
@@ -72,6 +71,7 @@ public class Mac extends Product {
                 processors[i] = p;
 
                 searching = false;
+                System.out.println("processors" + i);
             }
         }
     }
@@ -112,28 +112,28 @@ public class Mac extends Product {
     /**     Print out the detailed specs for the device
      */
     public void printSpecs() {
-        System.out.println(super.toString() + "\nProcessor:");
-        for (int i = 0; i < this.numProcessorOptions; i++) {
+        System.out.println(super.toString() + "Processor:");
+        for (int i = 0; i < this.processors.length; i++) {
             System.out.println("\t" + this.processors[i]);
         }
 
         System.out.println("Memory:");
-        for (int i = 0; i < this.numMemoryOptions; i++) {
+        for (int i = 0; i < memory.length; i++) {
             System.out.println("\t" + this.memory[i]);
         }
 
         System.out.println("Graphics:");
-        for (int i = 0; i < this.numGraphicsOptions; i++) {
+        for (int i = 0; i < graphics.length; i++) {
             System.out.println("\t" + this.graphics[i]);
         }
 
         System.out.println("Storage:");
-        for (int i = 0; i < this.numStorageOptions; i++) {
+        for (int i = 0; i < storage.length; i++) {
             System.out.println("\t" + this.storage[i]);
         }
 
         System.out.println("Colours:");
-        for (int i = 0; i < this.numColourOptions; i++) {
+        for (int i = 0; i < colours.length; i++) {
             System.out.println("\t" + this.colours[i]);
         }
 
@@ -142,7 +142,11 @@ public class Mac extends Product {
 
         System.out.println("Weight & Size:");
         System.out.println("\t" + this.weight + " kg");
-        System.out.println("\t" + this.size[0] + "cm x " + this.size[1] + "cm x " + this.size[3] + "cm");
+        System.out.println("\t" + this.size[0] + "cm x " + this.size[1] + "cm x " + this.size[2] + "cm");
+    }
+
+    public int numProcessors() {
+        return processors.length;
     }
 }
 

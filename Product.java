@@ -19,7 +19,7 @@ public abstract class Product implements Serializable {
     private String description;
     
     protected int numColourOptions;
-    protected String[] colours = new String[numColourOptions];
+    protected String[] colours;
 
     public NumberFormat currency = NumberFormat.getCurrencyInstance();
 
@@ -32,6 +32,8 @@ public abstract class Product implements Serializable {
         this.name = name;
         this.price = price;
         this.numColourOptions = numOfColours;
+
+        colours = new String[numOfColours];
     }
 
     /** Print out info for the item
