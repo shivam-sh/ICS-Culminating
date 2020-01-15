@@ -15,7 +15,7 @@ public class iOS extends Product implements Serializable{
     
     private int numStorageOptions;
 
-    private String[] storage = new String[numStorageOptions];
+    private String[] storage;
     private String camera;
     private String processor;
 
@@ -48,6 +48,8 @@ public class iOS extends Product implements Serializable{
         this.size[2] = height;
         this.displaySize = display;
         this.weight = weight;
+
+        storage = new String[numStorageOptions];
     }
 
     public void addColourOption(String s) {
@@ -72,23 +74,27 @@ public class iOS extends Product implements Serializable{
         }
     }
 
+    public int numStorageOption() {
+        return numStorageOptions;
+    }
+
     /**     Print out the detailed specs for the device
      */
     public void printSpecs() {
-        System.out.println(super.toString() + "\nStorage:");
-        for (int i = 0; i < this.numStorageOptions; i++) {
+        System.out.println(super.toString() + "Storage:");
+        for (int i = 0; i < this.storage.length; i++) {
             System.out.println("\t" + this.storage[i]);
         }
 
         System.out.println("Colours:");
-        for (int i = 0; i < this.numColourOptions; i++) {
+        for (int i = 0; i < this.colours.length; i++) {
             System.out.println("\t" + this.colours[i]);
         }
 
         System.out.println("Camera:\n\t" + this.camera);
         System.out.println("Display Size:\n\t" + this.displaySize + "\"");
         System.out.println("Weight & Size:\n\t" + this.weight + "g");
-        System.out.println("\t" + this.size[0] + "mm x " + this.size[1] + "mm x " + this.size[3] + "mm");
+        System.out.println("\t" + this.size[0] + "mm x " + this.size[1] + "mm x " + this.size[2] + "mm");
         System.out.println("Processor:\n\t" + this.processor);
     }
 }

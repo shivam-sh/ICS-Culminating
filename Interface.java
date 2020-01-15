@@ -16,11 +16,15 @@ public class Interface {
         Scanner scan = new Scanner(System.in);
         String input;
 
+        ProductManager.loadArray();
+
         FX.Bootup();
         FX.Clear();
 
         System.out.println("Welcome to the Apple Store");
         System.out.print("Please enter your full name: ");
+        System.out.println(((Mac)(ProductManager.getProduct(0))).numProcessors());
+        ((Mac)ProductManager.getProduct(0)).printSpecs();
         String name = scan.nextLine();
 
         //  If an employee may be using the database
@@ -82,6 +86,23 @@ public class Interface {
                 if (input.equalsIgnoreCase("search") || input.equalsIgnoreCase("s")) {
                     FX.Clear();
                     System.out.println("\nSearch");
+                    System.out.println("\nWhat are you looking for?");
+                    input = scan.next();
+
+                    System.out.println(ProductManager.getLength());
+
+                    if (ProductManager.search(input, 0, ProductManager.getLength()) != -1) {
+                        System.out.println("\n");
+                        ProductManager.getProduct(ProductManager.search(input, 0, ProductManager.getLength())).printSpecs();
+                    } else {
+                        System.out.println("Sorry, that isn't in the database ");
+                        System.out.println("Heres some options");
+                        ProductManager.listIOS();
+                        ProductManager.listMacs();
+                        System.out.println();
+                    }
+                    
+
                     
                 }
                 if (input.equalsIgnoreCase("checkout") || input.equalsIgnoreCase("c")) {
