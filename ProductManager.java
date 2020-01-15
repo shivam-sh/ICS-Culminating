@@ -238,6 +238,7 @@ public class ProductManager implements Serializable {
     /** Save products database to file
      */
     public static void saveArray() {
+        nameSort();
         try {
             //  Save the "products" database
             ObjectOutputStream outputCars = new ObjectOutputStream(new FileOutputStream("products.dat"));
