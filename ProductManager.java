@@ -205,6 +205,15 @@ public class ProductManager implements Serializable {
             return -1;
         }
 
+        else if((end-beg) == 1) {
+            if(item.equalsIgnoreCase(products[index+1].getName())) {
+                return index;
+            }
+            else {
+                return -1;
+            }
+        }
+
         else {
             if(compareWords(item, products[index].getName())) {
                 end = index;
