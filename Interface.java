@@ -45,7 +45,29 @@ public class Interface {
                     if (input.equalsIgnoreCase("browse products") || input.equalsIgnoreCase("browse") || input.equalsIgnoreCase("b")) {
                         FX.Clear();
                         System.out.println("\nBrowse Products");
-                        
+                        do {
+                            FX.Clear();
+                            System.out.println("\nSearch");
+                            System.out.println("\nWhat are you looking for?");
+                            System.out.println("[Product Name] [Exit]");
+                            input = scan.nextLine();
+    
+                            if (ProductManager.search(input, 0, ProductManager.getLength()) != -1) {
+                                FX.Clear();
+                                ProductManager.getProduct(ProductManager.search(input, 0, ProductManager.getLength())).printSpecs();
+    
+                                System.out.println("[Exit]");
+                                input = scan.nextLine();
+    
+                            } else {
+                                System.out.println("Sorry, that isn't in the database ");
+                                System.out.println("Here are some options");
+                                ProductManager.listIOS();
+                                ProductManager.listMacs();
+                                scan.nextLine();
+                            }
+                        } while (!(input.equalsIgnoreCase("exit") || input.equalsIgnoreCase("e") || input.equalsIgnoreCase("x")));
+                        input = "a";
                     }
 
                     if (input.equalsIgnoreCase("add product") || input.equalsIgnoreCase("add") || input.equalsIgnoreCase("a")) {
