@@ -53,6 +53,9 @@ public class Mac extends Product {
         System.out.println(processors.length);
     }
 
+    /**
+     * @param c     [String]           -Name of the colour option that wants to be added
+     */
     public void addColourOption(String c) {
         boolean searching = true;
         for (int i = 0; i < colours.length && searching; i++) {
@@ -64,6 +67,9 @@ public class Mac extends Product {
         }
     }
 
+    /**
+     * @param p     [String]           -Name of the processor option that wants to be added
+     */
     public void addProcessorOption(String p) {
         boolean searching = true;
         for (int i = 0; i < processors.length && searching; i++) {
@@ -76,6 +82,9 @@ public class Mac extends Product {
         }
     }
 
+    /**
+     * @param m     [String]           -Name of the memory option that wants to be added
+     */
     public void addMemoryOption(String m) {
         boolean searching = true;
         for (int i = 0; i < memory.length && searching; i++) {
@@ -87,6 +96,9 @@ public class Mac extends Product {
         }
     }
 
+    /**
+     * @param g     [String]           -Name of graphics option that wants to be added
+     */
     public void addGraphicsOption(String g) {
         boolean searching = true;
         for (int i = 0; i < graphics.length && searching; i++) {
@@ -98,6 +110,9 @@ public class Mac extends Product {
         }
     }
 
+    /**
+     * @param s     [String]           -Name of the storage option that wants to be added
+     */
     public void addStorageOption(String s) {
         boolean searching = true;
         for (int i = 0; i < storage.length && searching; i++) {
@@ -109,7 +124,8 @@ public class Mac extends Product {
         }
     }
 
-    /**     Print out the detailed specs for the device
+    /**     
+     * Print out the detailed specs for the device
      */
     public void printSpecs() {
         System.out.println(super.toString() + "Processor:");
@@ -145,6 +161,9 @@ public class Mac extends Product {
         System.out.println("\t" + this.size[0] + "cm x " + this.size[1] + "cm x " + this.size[2] + "cm");
     }
 
+    /**
+     * @return          [int]             -returns the number of processor options
+     */
     public int numProcessors() {
         return processors.length;
     }

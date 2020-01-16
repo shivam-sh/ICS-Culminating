@@ -52,6 +52,9 @@ public class iOS extends Product implements Serializable{
         storage = new String[numStorageOptions];
     }
 
+    /**
+     * @param s     [String]           -Name of colour that wants to be added
+     */
     public void addColourOption(String s) {
         boolean searching = true;
         for (int i = 0; i < colours.length && searching; i++) {
@@ -63,6 +66,9 @@ public class iOS extends Product implements Serializable{
         }
     }
 
+    /**
+     * @param s     [String]            -Value of the storage option that wants to be added
+     */
     public void addStorageOption(String s) {
         boolean searching = true;
         for (int i = 0; i < storage.length && searching; i++) {
@@ -74,6 +80,9 @@ public class iOS extends Product implements Serializable{
         }
     }
 
+    /**
+     * @return      [int]                -Return number of storage options
+     */
     public int numStorageOption() {
         return numStorageOptions;
     }
