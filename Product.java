@@ -8,7 +8,7 @@
  */
 
  import java.io.Serializable;
-import java.text.NumberFormat;
+ import java.text.NumberFormat;
 
 public abstract class Product implements Serializable {
 
@@ -46,7 +46,7 @@ public abstract class Product implements Serializable {
      *  @return     [String] - Name and price of product
      */
     public String toString() {
-        return this.name + "[" + currency.format(this.price) + "]\n";
+        return this.name + "[" + currency.format(this.price) + "]";
     }
 
     public void setDescription(String d) {
@@ -73,6 +73,10 @@ public abstract class Product implements Serializable {
 
     public int getInventory() {
         return this.inventory;
+    }
+
+    public double getPrice() {
+        return this.price;
     }
 }
 

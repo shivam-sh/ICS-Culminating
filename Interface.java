@@ -8,11 +8,13 @@
  */
 
  import java.util.Scanner;
+ import java.text.NumberFormat;
 
 public class Interface {
     static int[] cart = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
 
     public static void main(String[] args) {
+        NumberFormat currency = NumberFormat.getCurrencyInstance();
         Scanner scan = new Scanner(System.in);
         String input;
         Boolean searching;
@@ -42,7 +44,8 @@ public class Interface {
                     System.out.println("[Browse Products] [Add Product] [Remove Product] [Order Inventory] [Exit]");
                     input = scan.nextLine();
 
-                    if (input.equalsIgnoreCase("browse products") || input.equalsIgnoreCase("browse") || input.equalsIgnoreCase("b")) {
+                    // Done, not bugtested
+                    if (input.equalsIgnoreCase("Browse products") || input.equalsIgnoreCase("Browse") || input.equalsIgnoreCase("b")) {
                         FX.Clear();
                         System.out.println("\nBrowse Products");
                         do {
@@ -67,10 +70,11 @@ public class Interface {
                                 scan.nextLine();
                             }
                         } while (!(input.equalsIgnoreCase("exit") || input.equalsIgnoreCase("e") || input.equalsIgnoreCase("x")));
-                        input = "a";
+                        input = "l";
                     }
 
-                    if (input.equalsIgnoreCase("add product") || input.equalsIgnoreCase("add") || input.equalsIgnoreCase("a")) {
+                    // Done, not bugtested
+                    if (input.equalsIgnoreCase("Add product") || input.equalsIgnoreCase("Add") || input.equalsIgnoreCase("a")) {
                         FX.Clear();
                         System.out.println("\nAdd Product");
                         
@@ -85,7 +89,8 @@ public class Interface {
                         }
                     }
 
-                    if (input.equalsIgnoreCase("remove product") || input.equalsIgnoreCase("remove") || input.equalsIgnoreCase("r")) {
+                    // Done, not bugtested
+                    if (input.equalsIgnoreCase("Remove product") || input.equalsIgnoreCase("Remove") || input.equalsIgnoreCase("r")) {
                         FX.Clear();
                         System.out.println("\nRemove Product");
                         System.out.println("Which product would you like to remove?");
@@ -96,13 +101,14 @@ public class Interface {
                         scan.nextLine();
                     }
                     
-                    if (input.equalsIgnoreCase("order inventory") || input.equalsIgnoreCase("order") || input.equalsIgnoreCase("o")) {
+                    // Needs to be finished
+                    if (input.equalsIgnoreCase("Order inventory") || input.equalsIgnoreCase("Order") || input.equalsIgnoreCase("o")) {
                         FX.Clear();
                         System.out.println("\nOrder Inventory");
                         
                     }
 
-                } while(!(input.equalsIgnoreCase("exit") || input.equalsIgnoreCase("e") || input.equalsIgnoreCase("x")));
+                } while(!(input.equalsIgnoreCase("Exit") || input.equalsIgnoreCase("E") || input.equalsIgnoreCase("X")));
             }
         } 
 
@@ -125,7 +131,8 @@ public class Interface {
                 System.out.println("[Search] [Checkout] [Exit]");
                 input = scan.nextLine();
 
-                if (input.equalsIgnoreCase("search") || input.equalsIgnoreCase("s")) {
+                // Done, not bugtested
+                if (input.equalsIgnoreCase("Search") || input.equalsIgnoreCase("S")) {
                     do {
                         FX.Clear();
                         System.out.println("\nSearch");
@@ -166,12 +173,66 @@ public class Interface {
                     } while (!(input.equalsIgnoreCase("exit") || input.equalsIgnoreCase("e") || input.equalsIgnoreCase("x")));
                     input = "a";
                 }
-                if (input.equalsIgnoreCase("checkout") || input.equalsIgnoreCase("c")) {
+                
+                // Needs to be finished
+                if (input.equalsIgnoreCase("Checkout") || input.equalsIgnoreCase("C")) {
                     FX.Clear();
                     System.out.println("\nCheckout");
+
+                    double cost = 0;
+                    for (int i = 0; i < cart.length; i++) {
+                        if (cart[i] != -1) {
+                            cost += ProductManager.getProduct(cart[i]).getPrice();
+                        }
+                    }
+
+                    System.out.println("Cart: ");
+                    if (itemsInCart() == 0) {
+                        System.out.println("Empty");
+                    } else {
+                        for (int i = 0; i < cart.length; i++) {
+                            if (cart[i] != -1) {
+                                System.out.println( ProductManager.getProduct(cart[i]).toString() );
+                            }
+                        }
+                    }
+
+                    System.out.print("Total Cost: " + currency.format(cost));
+
+                    System.out.print("\n\nCard Number - ");
+                    scan.nextLine();
+
+                    System.out.print("\n\nCVV - ");
+                    scan.nextLine();
+
+                    System.out.print("\n\nShipping Address - ");
+                    scan.nextLine();
+
+                    System.out.print("\n\nBilling Address - ");
+                    scan.nextLine();
+
+                    System.out.print("[Confirm] [Cancel]");
+                    input = scan.nextLine();
+
+                    if (input.equalsIgnoreCase("Confirm") || input.equalsIgnoreCase("C")) {
+                        System.out.println("Order Placed!");
+                        scan.nextLine();
+
+                        for (int i = 0; i < cart.length; i++) {
+                            cart[i] = -1;
+                        }
+                    } else {
+                        System.out.println("Order Canceled");
+
+                        scan.nextLine();
+
+                        for (int i = 0; i < cart.length; i++) {
+                            cart[i] = -1;
+                        }
+                    }
                 }
 
-            } while (!(input.equalsIgnoreCase("exit") || input.equalsIgnoreCase("e") || input.equalsIgnoreCase("x")));
+            } while (!(input.equalsIgnoreCase("Exit") || input.equalsIgnoreCase("E") || input.equalsIgnoreCase("X")));
         }
 
         scan.close();
@@ -193,5 +254,10 @@ public class Interface {
         }
 
         return items;
+    }
+
+
+    public static void name() {
+        
     }
 }

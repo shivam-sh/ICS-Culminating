@@ -369,4 +369,5 @@ public class ProductManager implements Serializable {
     public static int getLength() {
         return products.length;
     }
+
 }
