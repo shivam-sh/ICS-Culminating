@@ -127,12 +127,10 @@ public class ProductManager implements Serializable {
      */
     public static void addIOS() {
         Product[] temp = new Product[products.length + 1];
-        int productNum = 0;
 
         for (int i = 0; i < products.length; i++) {
             temp[i] = products[i];
 
-            productNum = i;
         }
 
         FX.Clear();
@@ -175,13 +173,13 @@ public class ProductManager implements Serializable {
         FX.Clear();
         for (int i = 0; i < nCO; i++) {
             System.out.print("\nEnter colour option [ " + (i + 1) + "] - ");
-            ((iOS) temp[productNum]).addColourOption(scan.nextLine());
+            ((iOS) temp[products.length]).addColourOption(scan.nextLine());
         }
 
         FX.Clear();
         for (int i = 0; i < nSO; i++) {
             System.out.print("\nEnter storage option [" + (i + 1) + "] - ");
-            ((iOS) temp[productNum]).addStorageOption(scan.nextLine());
+            ((iOS) temp[products.length]).addStorageOption(scan.nextLine());
         }
         products = temp;
     }
