@@ -67,8 +67,12 @@ public abstract class Product implements Serializable {
         this.name = name;
     }
 
-    public void setInventory(int i) {
-        this.inventory = i;
+    public void addInventory(int i) {
+        this.inventory += i;
+    }
+
+    public void removeInventory() {
+        this.inventory--;
     }
 
     public int getInventory() {
