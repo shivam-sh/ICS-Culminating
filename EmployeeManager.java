@@ -133,4 +133,8 @@ public class EmployeeManager implements Serializable {
             e.printStackTrace();
         }
     }
+
+    public static int getLength() {
+        return employees.length;
+    }
 }
