@@ -23,8 +23,6 @@ public class Interface {
 
         System.out.println("Welcome to the Apple Store");
         System.out.print("Please enter your full name: ");
-        System.out.println(((Mac)(ProductManager.getProduct(0))).numProcessors());
-        ((Mac)ProductManager.getProduct(0)).printSpecs();
         String name = scan.nextLine();
 
         //  If an employee may be using the database
@@ -136,26 +134,5 @@ public class Interface {
         }
 
         return false;
-    }
-
-    //  Input validation methods to prevent code crashing errors due to invalid inputs
-    public static int inputValidationInt(String s){
-        int num = 0;
-        try {
-            num = Integer.parseInt(s);
-        } catch(Exception e) {
-            num = 69;
-        }
-        return num;
-    }
-
-    public static double inputValidationDouble(String s){
-        double num = 0;
-        try {
-            num = Double.parseDouble(s);
-        } catch(Exception e) {
-            num = 69;
-        }
-        return num;
     }
 }

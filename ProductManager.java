@@ -16,6 +16,9 @@ public class ProductManager implements Serializable {
     private static Product[] products = new Product[0];
     static Scanner scan = new Scanner(System.in);
 
+    /**
+     * Print out all of the Mac devices currently stored in the products array
+     */
     public static void listMacs() {
         for (int i = 0; i < products.length; i++) {
             if (products[i] instanceof Mac){
@@ -25,6 +28,7 @@ public class ProductManager implements Serializable {
     }
 
     /**
+     * Print out all of the iOS devices currently stored in the products array
     */
     public static void listIOS() {
         for (int i = 0; i < products.length; i++) {
@@ -35,6 +39,7 @@ public class ProductManager implements Serializable {
     }
     
     /**
+     * Dynamically resizes the array and adds a Mac device according to user input
      */
     public static void addMac() {
         Product[] temp = new Product[products.length + 1];
@@ -51,37 +56,37 @@ public class ProductManager implements Serializable {
         String name = scan.nextLine();
 
         System.out.print("\nEnter the price (ex. 499.99) - ");
-        Double price = inputValidationDouble(scan.nextLine());
+        Double price = InputValidation.Double(scan.nextLine());
 
         System.out.print("\nEnter the number of colour options - ");
-        int nCO = inputValidationInt(scan.nextLine());
+        int nCO = InputValidation.Int(scan.nextLine());
 
         System.out.print("\nEnter the number of processor options - ");
-        int nPO = inputValidationInt(scan.nextLine());
+        int nPO = InputValidation.Int(scan.nextLine());
 
         System.out.print("\nEnter the number of memory options - ");
-        int nMO = inputValidationInt(scan.nextLine());
+        int nMO = InputValidation.Int(scan.nextLine());
 
         System.out.print("\nEnter the number of graphics options - ");
-        int nGO = inputValidationInt(scan.nextLine());
+        int nGO = InputValidation.Int(scan.nextLine());
 
         System.out.print("\nEnter the number of storage options - ");
-        int nSO = inputValidationInt(scan.nextLine());
+        int nSO = InputValidation.Int(scan.nextLine());
 
         System.out.print("\nEnter the display size in inches - ");
-        Double display = inputValidationDouble(scan.nextLine());
+        Double display = InputValidation.Double(scan.nextLine());
 
         System.out.print("\nEnter the device's length (cm) - ");
-        Double length = inputValidationDouble(scan.nextLine());
+        Double length = InputValidation.Double(scan.nextLine());
 
         System.out.print("\nEnter the device's width (cm) - ");
-        Double width = inputValidationDouble(scan.nextLine());
+        Double width = InputValidation.Double(scan.nextLine());
 
         System.out.print("\nEnter the device's height (cm) - ");
-        Double height = inputValidationDouble(scan.nextLine());
+        Double height = InputValidation.Double(scan.nextLine());
 
         System.out.print("\nEnter the device's weight (kg) - ");
-        Double weight = inputValidationDouble(scan.nextLine());
+        Double weight = InputValidation.Double(scan.nextLine());
 
         temp[products.length] = new Mac(name, price, nCO, nPO, nMO, nGO, nSO, display, length, width, height, weight);
 
@@ -118,6 +123,7 @@ public class ProductManager implements Serializable {
     }
 
     /**
+     * Dynamically resizes the array and adds an iOS device according to user input
      */
     public static void addIOS() {
         Product[] temp = new Product[products.length + 1];
@@ -135,13 +141,13 @@ public class ProductManager implements Serializable {
         String name = scan.nextLine();
 
         System.out.print("\nEnter the price (ex. 499.99) - ");
-        Double price = inputValidationDouble(scan.nextLine());
+        Double price = InputValidation.Double(scan.nextLine());
 
         System.out.print("\nEnter the number of colour options - ");
-        int nCO = inputValidationInt(scan.nextLine());
+        int nCO = InputValidation.Int(scan.nextLine());
 
         System.out.print("\nEnter the number of storage options - ");
-        int nSO = inputValidationInt(scan.nextLine());
+        int nSO = InputValidation.Int(scan.nextLine());
 
         System.out.print("\nEnter the camera specs (ex. 12MP, 8MP) - ");
         String cam = scan.nextLine();
@@ -150,19 +156,19 @@ public class ProductManager implements Serializable {
         String cpu = scan.nextLine();
 
         System.out.print("\nEnter the display size in inches - ");
-        Double display = inputValidationDouble(scan.nextLine());
+        Double display = InputValidation.Double(scan.nextLine());
 
         System.out.print("\nEnter the device's length (mm) - ");
-        Double length = inputValidationDouble(scan.nextLine());
+        Double length = InputValidation.Double(scan.nextLine());
 
         System.out.print("\nEnter the device's width (mm) - ");
-        Double width = inputValidationDouble(scan.nextLine());
+        Double width = InputValidation.Double(scan.nextLine());
 
         System.out.print("\nEnter the device's height (mm) - ");
-        Double height = inputValidationDouble(scan.nextLine());
+        Double height = InputValidation.Double(scan.nextLine());
 
         System.out.print("\nEnter the device's weight (g) - ");
-        Double weight = inputValidationDouble(scan.nextLine());
+        Double weight = InputValidation.Double(scan.nextLine());
 
         temp[products.length] = new iOS(name, price, nCO, nSO, cam, cpu, display, length, width, height, weight);
 
@@ -181,18 +187,18 @@ public class ProductManager implements Serializable {
     }
 
     /**
-     * @param i
-     * @return
+     * @param i     [int]       - place in the array the product takes up
+     * @return      [Product]   - the Product object that was requested
      */
     public static Product getProduct(int i) {
         return products[i];
     }
 
     /**
-     * @param item  [String]    - Name of th
+     * @param item  [String]    - Name of the product being searched for
      * @param beg   [int]       - Just enter 0
      * @param end   [int]       - Enter ProductManager.getLength()
-     * @return
+     * @return      [int]       - The location within the array of the product
      */
     public static int search(String item, int beg, int end) {
         int index = (beg + end) / 2;
@@ -272,6 +278,9 @@ public class ProductManager implements Serializable {
         }
     }
 
+    /**
+     * Sort the whole products array alphabetically by the name of the product
+     */
     public static void nameSort() {
         for(int i=1; i < products.length; i++){
             String name = products[i].getName();
@@ -323,29 +332,10 @@ public class ProductManager implements Serializable {
         return higher;
     }
 
+    /**
+     * @return      [int]   - The current size of the products array
+     */
     public static int getLength() {
         return products.length;
-    }
-
-    //  Input validation methods to prevent code crashing errors due to invalid inputs
-    public static double inputValidationDouble(String s){
-        double num = 0;
-        try {
-            num = Double.parseDouble(s);
-        } catch(Exception e) {
-            num = 69;
-        }
-        return num;
-    }
-
-    //  Input validation methods to prevent code crashing errors due to invalid inputs
-    public static int inputValidationInt(String s){
-        int num = 0;
-        try {
-            num = Integer.parseInt(s);
-        } catch(Exception e) {
-            num = 69;
-        }
-        return num;
     }
 }

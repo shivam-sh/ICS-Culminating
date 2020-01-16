@@ -52,7 +52,7 @@ public class EmployeeManager implements Serializable {
         String lName = scan.nextLine();
 
         System.out.print("Enter the employee number - ");
-        long empNum = inputValidationLong(scan.nextLine());
+        long empNum = InputValidation.Long(scan.nextLine());
 
         temp[employees.length] = new Employee(fName, lName, empNum);
 
@@ -132,16 +132,5 @@ public class EmployeeManager implements Serializable {
             System.out.println("An error ocurred, the database wasn't loaded correctly. Please try again.\n\n");
             e.printStackTrace();
         }
-    }
-
-    //  Input validation methods to prevent code crashing errors due to invalid inputs
-    public static long inputValidationLong(String s){
-        long num = 0;
-        try {
-            num = Long.parseLong(s);
-        } catch(Exception e) {
-            num = 0;
-        }
-        return num;
     }
 }
