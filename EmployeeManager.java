@@ -65,6 +65,7 @@ public class EmployeeManager implements Serializable {
      */
     public static boolean isEmployee(String input){
         for (int i = 0; i < employees.length; i++) {
+            System.out.println(employees[i].getName());
             if (employees[i].getName().equalsIgnoreCase(input)) {
                 return true;
             }

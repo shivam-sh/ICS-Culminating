@@ -10,13 +10,15 @@
  import java.util.Scanner;
 
 public class Interface {
-    static int[] cart = new int[30];
+    static int[] cart = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String input;
+        Boolean searching;
 
         ProductManager.loadArray();
+        EmployeeManager.loadArray();
 
         FX.Bootup();
         FX.Clear();
@@ -26,6 +28,7 @@ public class Interface {
         String name = scan.nextLine();
 
         //  If an employee may be using the database
+        System.out.println("Interface: " + EmployeeManager.isEmployee(name));
         if (EmployeeManager.isEmployee(name)) {
             FX.Clear();
             System.out.println("Please enter your employee number: ");
@@ -37,23 +40,40 @@ public class Interface {
                     System.out.println("\n\nApple Employee Homepage");
                     System.out.println("What would you like to do?");
                     System.out.println("[Browse Products] [Add Product] [Remove Product] [Order Inventory] [Exit]");
-                    input = scan.next();
+                    input = scan.nextLine();
 
                     if (input.equalsIgnoreCase("browse products") || input.equalsIgnoreCase("browse") || input.equalsIgnoreCase("b")) {
                         FX.Clear();
                         System.out.println("\nBrowse Products");
                         
                     }
+
                     if (input.equalsIgnoreCase("add product") || input.equalsIgnoreCase("add") || input.equalsIgnoreCase("a")) {
                         FX.Clear();
                         System.out.println("\nAdd Product");
                         
+                        System.out.println("What device would you like to add?");
+                        System.out.println("[Mac] [iOS] [Exit]");
+                        input = scan.nextLine();
+
+                        if (input.equalsIgnoreCase("iOS") || input.equalsIgnoreCase("iPhone") || input.equalsIgnoreCase("iPad") || input.equalsIgnoreCase("I")) {
+                            ProductManager.addIOS();
+                        } else if (input.equalsIgnoreCase("Mac") || input.equalsIgnoreCase("MacBook") || input.equalsIgnoreCase("M")) {
+                            ProductManager.addMac();
+                        }
                     }
+
                     if (input.equalsIgnoreCase("remove product") || input.equalsIgnoreCase("remove") || input.equalsIgnoreCase("r")) {
                         FX.Clear();
                         System.out.println("\nRemove Product");
-                        
+                        System.out.println("Which product would you like to remove?");
+                        input = scan.nextLine();
+
+                        ProductManager.removeProduct(input);
+
+                        scan.nextLine();
                     }
+                    
                     if (input.equalsIgnoreCase("order inventory") || input.equalsIgnoreCase("order") || input.equalsIgnoreCase("o")) {
                         FX.Clear();
                         System.out.println("\nOrder Inventory");
@@ -69,39 +89,60 @@ public class Interface {
             do {
                 FX.Clear();
                 System.out.println("\n\nApple Product Homepage");
-                System.out.print("Cart: ");
-                if (cartIsEmpty()) {
+                System.out.println("Cart: ");
+                if (itemsInCart() == 0) {
                     System.out.println("Empty");
                 } else {
                     for (int i = 0; i < cart.length; i++) {
-                        System.out.println( ProductManager.getProduct(cart[i]).toString() );
+                        if (cart[i] != -1) {
+                            System.out.println( ProductManager.getProduct(cart[i]).toString() );
+                        }
                     }
                 }
         
                 System.out.println("[Search] [Checkout] [Exit]");
-                input = scan.next();
+                input = scan.nextLine();
 
                 if (input.equalsIgnoreCase("search") || input.equalsIgnoreCase("s")) {
-                    FX.Clear();
-                    System.out.println("\nSearch");
-                    System.out.println("\nWhat are you looking for?");
-                    input = scan.next();
+                    do {
+                        FX.Clear();
+                        System.out.println("\nSearch");
+                        System.out.println("\nWhat are you looking for?");
+                        System.out.println("[Product Name] [Exit]");
+                        input = scan.nextLine();
 
-                    System.out.println(ProductManager.getLength());
+                        if (ProductManager.search(input, 0, ProductManager.getLength()) != -1) {
+                            String product = input;
+                            FX.Clear();
+                            ProductManager.getProduct(ProductManager.search(input, 0, ProductManager.getLength())).printSpecs();
 
-                    if (ProductManager.search(input, 0, ProductManager.getLength()) != -1) {
-                        System.out.println("\n");
-                        ProductManager.getProduct(ProductManager.search(input, 0, ProductManager.getLength())).printSpecs();
-                    } else {
-                        System.out.println("Sorry, that isn't in the database ");
-                        System.out.println("Heres some options");
-                        ProductManager.listIOS();
-                        ProductManager.listMacs();
-                        System.out.println();
-                    }
-                    
+                            System.out.println("[Add to Cart] [Exit]");
+                            input = scan.nextLine();
 
-                    
+                            if (input.equalsIgnoreCase("Add to Cart") || input.equalsIgnoreCase("Add") || input.equalsIgnoreCase("A")){
+                                searching = true;
+                                for (int i = 0; i < cart.length && searching; i++) {
+                                    if (cart[i] == -1) {
+
+                                        cart[i] = ProductManager.getNum(product);
+
+                                        searching = false;
+                                        System.out.println("\nAdded to cart");
+                                        System.out.println("[Exit]");
+                                        scan.nextLine();
+                                        input = "exit";
+                                    }
+                                }
+                            }
+                        } else {
+                            System.out.println("Sorry, that isn't in the database ");
+                            System.out.println("Here are some options");
+                            ProductManager.listIOS();
+                            ProductManager.listMacs();
+                            scan.nextLine();
+                        }
+                    } while (!(input.equalsIgnoreCase("exit") || input.equalsIgnoreCase("e") || input.equalsIgnoreCase("x")));
+                    input = "a";
                 }
                 if (input.equalsIgnoreCase("checkout") || input.equalsIgnoreCase("c")) {
                     FX.Clear();
@@ -117,22 +158,18 @@ public class Interface {
         FX.Exit();
     }
 
-    /**     Checks to see if cart ic empty
-     * @return      [boolean] - Is the cart empty?
+    /**     Checks to see if cart is empty
+     * @return      [int] - # of items in cart?
      */
-    public static boolean cartIsEmpty() {
+    public static int itemsInCart() {
         int items = 0;
 
         for (int i = 0; i < cart.length; i++) {
-            if (cart[i] != 0) {
+            if (cart[i] != -1) {
                 items++;
             }
         }
 
-        if (items == 0) {
-            return true;
-        }
-
-        return false;
+        return items;
     }
 }
