@@ -184,6 +184,11 @@ public class ProductManager implements Serializable {
         products = temp;
     }
 
+
+    public static void listInventory() {
+        
+    }
+
     /**
      * @param s
      */
@@ -283,7 +288,7 @@ public class ProductManager implements Serializable {
             outputCars.writeObject(products);
             outputCars.close();
 
-            System.out.println("Database Saved");
+            System.out.println("Product Database Saved");
         }
         catch (Exception e) {
             System.out.println("An error ocurred, the database wasn't updated correctly. Please try again later.\n\n");
@@ -302,7 +307,7 @@ public class ProductManager implements Serializable {
             in.close();
             carsIn.close();
 
-            System.out.println("Database Loaded Without Issues");
+            System.out.println("Product Database Loaded Without Issues");
         }
         catch (Exception e) {
             System.out.println("An error ocurred, the database wasn't loaded correctly. Please try again.\n\n");

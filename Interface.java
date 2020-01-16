@@ -109,6 +109,8 @@ public class Interface {
                     }
 
                 } while(!(input.equalsIgnoreCase("Exit") || input.equalsIgnoreCase("E") || input.equalsIgnoreCase("X")));
+            } else {
+                System.out.println("Incorrect Employee Number");
             }
         } 
 
@@ -174,7 +176,7 @@ public class Interface {
                     input = "a";
                 }
                 
-                // Needs to be finished
+                // Done, not bugtested
                 if (input.equalsIgnoreCase("Checkout") || input.equalsIgnoreCase("C")) {
                     FX.Clear();
                     System.out.println("\nCheckout");
@@ -211,7 +213,7 @@ public class Interface {
                     System.out.print("\n\nBilling Address - ");
                     scan.nextLine();
 
-                    System.out.print("[Confirm] [Cancel]");
+                    System.out.println("[Confirm] [Cancel]");
                     input = scan.nextLine();
 
                     if (input.equalsIgnoreCase("Confirm") || input.equalsIgnoreCase("C")) {
@@ -254,10 +256,5 @@ public class Interface {
         }
 
         return items;
-    }
-
-
-    public static void name() {
-        
     }
 }
