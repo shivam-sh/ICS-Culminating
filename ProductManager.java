@@ -185,6 +185,48 @@ public class ProductManager implements Serializable {
     }
 
     /**
+     * @param s
+     */
+    public static void removeProduct(String s) {
+        int location = -1;
+
+        for (int i = 0; i < products.length; i++) {
+            if (products[i].getName().equalsIgnoreCase(s)) {
+                location = i;
+            }
+        }
+
+        if (location > -1) {
+            products[location] = getProduct(products.length - 1);
+
+            Product[] temp = new Product[products.length - 1];
+
+            for (int i = 0; i < temp.length; i++) {
+                temp[i] = products[i];
+            }
+
+            products = temp;
+
+            System.out.println("Product deleted!");
+        } else {
+            System.out.println("Invalid input, nothing deleted");
+        }
+    }
+
+    /**
+     * @param s
+     * @return
+     */
+    public static int getNum(String s) {
+        for (int i = 0; i < products.length; i++) {
+            if (products[i].getName().equalsIgnoreCase(s)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    /**
      * @param i     [int]       - place in the array the product takes up
      * @return      [Product]   - the Product object that was requested
      */
@@ -231,14 +273,6 @@ public class ProductManager implements Serializable {
         return index;
     }
 
-    public static int getNumItems() {
-        int num = 0;
-        for (int i = 0; i < products.length; i++) {
-            num++;
-        }
-        return num;
-    }
-
     /** Save products database to file
      */
     public static void saveArray() {
@@ -276,8 +310,7 @@ public class ProductManager implements Serializable {
         }
     }
 
-    /**
-     * Sort the whole products array alphabetically by the name of the product
+    /** Sort the whole products array alphabetically by the name of the product
      */
     public static void nameSort() {
         for(int i=1; i < products.length; i++){

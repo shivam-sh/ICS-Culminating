@@ -17,6 +17,7 @@ public abstract class Product implements Serializable {
     private String name;
     private double price;
     private String description;
+    private int inventory;
     
     protected int numColourOptions;
     protected String[] colours;
@@ -34,6 +35,7 @@ public abstract class Product implements Serializable {
         this.numColourOptions = numOfColours;
 
         colours = new String[numOfColours];
+        inventory = 1000000;
     }
 
     /** Print out info for the item
@@ -63,6 +65,14 @@ public abstract class Product implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setInventory(int i) {
+        this.inventory = i;
+    }
+
+    public int getInventory() {
+        return this.inventory;
     }
 }
 
