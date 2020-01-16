@@ -9,11 +9,15 @@
 
  import java.util.Scanner;
 
-public class MakeArray {
+public class AddDevice {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("What would you like to add?");
+        ProductManager.loadArray();
+
+        System.out.println("There are currently " + ProductManager.getLength() + " devices in the database");
+
+        System.out.println("What would you like to add? [mac or ios]");
         String input = scan.nextLine();
 
         if (input.equalsIgnoreCase("iOS")) {
@@ -22,22 +26,7 @@ public class MakeArray {
             ProductManager.addMac();
         }
 
-        System.out.println(ProductManager.getLength());
-
-        ProductManager.nameSort();
-
-        System.out.println(ProductManager.getLength());
-
         ProductManager.saveArray();
-
-        System.out.println(ProductManager.getLength());
-
-        ProductManager.loadArray();
-
-        System.out.println(ProductManager.getLength());
-
-        System.out.println(((Mac)(ProductManager.getProduct(0))).numProcessors());
-        ((Mac)ProductManager.getProduct(0)).printSpecs();
 
         scan.close();
     }
