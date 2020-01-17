@@ -80,11 +80,12 @@ public abstract class Product implements Serializable {
         this.name = name;
     }
 
-    /** 
-     * @param i     [int]               - Creates the inventory
-     */
-    public void setInventory(int i) {
-        this.inventory = i;
+    public void addInventory(int i) {
+        this.inventory += i;
+    }
+
+    public void removeInventory() {
+        this.inventory--;
     }
 
     /** 

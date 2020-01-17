@@ -184,6 +184,16 @@ public class ProductManager implements Serializable {
         products = temp;
     }
 
+
+    /**
+     * 
+     */
+    public static void listInventory() {
+        for (int i = 0; i < products.length; i++) {
+            System.out.println(products[i].getName() + ", [Inventory - " + products[i].getInventory() + "]");
+        }
+    }
+
     /**
      * @param s
      */
@@ -235,6 +245,14 @@ public class ProductManager implements Serializable {
     }
 
     /**
+     * @param s     [String]    - name of the product
+     * @return      [Product]   - the Product object that was requested
+     */
+    public static Product getProduct(String s) {
+        return products[getNum(s)];
+    }
+
+    /**
      * @param item  [String]    - Name of the product being searched for
      * @param beg   [int]       - Just enter 0
      * @param end   [int]       - Enter ProductManager.getLength()
@@ -273,7 +291,8 @@ public class ProductManager implements Serializable {
         return index;
     }
 
-    /** Save products database to file
+    /** 
+     * Save products database to file
      */
     public static void saveArray() {
         nameSort();
@@ -283,7 +302,7 @@ public class ProductManager implements Serializable {
             outputCars.writeObject(products);
             outputCars.close();
 
-            System.out.println("Database Saved");
+            System.out.println("Product Database Saved");
         }
         catch (Exception e) {
             System.out.println("An error ocurred, the database wasn't updated correctly. Please try again later.\n\n");
@@ -291,7 +310,8 @@ public class ProductManager implements Serializable {
         }
     }
 
-    /** Load products database from file
+    /** 
+     * Load products database from file
      */
     public static void loadArray() {
         try {
@@ -302,7 +322,7 @@ public class ProductManager implements Serializable {
             in.close();
             carsIn.close();
 
-            System.out.println("Database Loaded Without Issues");
+            System.out.println("Product Database Loaded Without Issues");
         }
         catch (Exception e) {
             System.out.println("An error ocurred, the database wasn't loaded correctly. Please try again.\n\n");
@@ -310,7 +330,8 @@ public class ProductManager implements Serializable {
         }
     }
 
-    /** Sort the whole products array alphabetically by the name of the product
+    /** 
+     * Sort the whole products array alphabetically by the name of the product
      */
     public static void nameSort() {
         for(int i=1; i < products.length; i++){
@@ -325,13 +346,13 @@ public class ProductManager implements Serializable {
         }
     }
 
-    // Note: it is impossible to have two words that are exactly the same
-
-    /**
-     * @param s1    [Srting]           - The word 
-     * @param s2    [String]           -
+    
+    /** 
+     * @param s1
+     * @param s2
      * @return
-     */
+     * Note: it is impossible to have two words that are exactly the same
+     */ 
     public static boolean compareWords(String s1, String s2) {
         
         boolean higher;
