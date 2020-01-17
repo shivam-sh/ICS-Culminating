@@ -326,6 +326,12 @@ public class ProductManager implements Serializable {
     }
 
     // Note: it is impossible to have two words that are exactly the same
+
+    /**
+     * @param s1    [Srting]           - The word 
+     * @param s2    [String]           -
+     * @return
+     */
     public static boolean compareWords(String s1, String s2) {
         
         boolean higher;

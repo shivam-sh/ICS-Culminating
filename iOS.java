@@ -90,7 +90,7 @@ public class iOS extends Product implements Serializable{
     /**     Print out the detailed specs for the device
      */
     public void printSpecs() {
-        System.out.println(super.toString() + "Storage:");
+        System.out.println(super.toString() + "\nStorage:");
         for (int i = 0; i < this.storage.length; i++) {
             System.out.println("\t" + this.storage[i]);
         }
