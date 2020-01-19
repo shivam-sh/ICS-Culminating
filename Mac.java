@@ -128,7 +128,7 @@ public class Mac extends Product {
      * Print out the detailed specs for the device
      */
     public void printSpecs() {
-        System.out.println(super.toString() + "Processor:");
+        System.out.println(super.toString() + "\nProcessor:");
         for (int i = 0; i < this.processors.length; i++) {
             System.out.println("\t" + this.processors[i]);
         }
@@ -162,7 +162,7 @@ public class Mac extends Product {
     }
 
     /**
-     * @return          [int]             -returns the number of processor options
+     * @return          [int]             -Returns the number of processor options
      */
     public int numProcessors() {
         return processors.length;

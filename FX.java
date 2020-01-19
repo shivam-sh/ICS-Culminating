@@ -91,6 +91,9 @@ public class FX {
             ANSI_RESET);        
     }
 
+    /**
+     * @param filename      [String]        -Name of the audio file 
+     */
     public static void play(String filename){
         try {
             Clip clip = AudioSystem.getClip();

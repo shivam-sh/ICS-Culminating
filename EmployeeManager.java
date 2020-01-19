@@ -106,7 +106,7 @@ public class EmployeeManager implements Serializable {
             ObjectOutputStream outputCars = new ObjectOutputStream(new FileOutputStream("employees.dat"));
             outputCars.writeObject(employees);
             outputCars.close();
-            System.out.println("Employee Database Saved");
+            System.out.println("Successfully saved file.");
         }
     
         catch (Exception e) {
@@ -127,7 +127,7 @@ public class EmployeeManager implements Serializable {
             in.close();
             carsIn.close();
 
-            System.out.println("Employee Database Loaded Without Issues");
+            System.out.println("Database Loaded Without Issues");
         }
         catch (Exception e) {
             System.out.println("An error ocurred, the database wasn't loaded correctly. Please try again.\n\n");

@@ -43,15 +43,22 @@ public abstract class Product implements Serializable {
     public void printSpecs() {}
 
     /**
-     *  @return     [String] - Name and price of product
+     *  @return     [String]            - Name and price of product
      */
     public String toString() {
         return this.name + "[" + currency.format(this.price) + "]";
     }
 
+    /**
+     * @param d     [String]            - Returns the description of the product     
+     */
     public void setDescription(String d) {
         this.description = d;
     }
+
+    /**
+     * @return      [String]            - Description or specifies if there is no description
+     */
     public String getDescription() {
         if (this.description == null) {
             return "no description available";
@@ -59,10 +66,16 @@ public abstract class Product implements Serializable {
         return this.description;
     }
     
+    /**
+     * @return      [String]            - Returns product name
+     */
     public String getName() {
         return this.name;
     }
 
+    /**
+     * @param name  [String]            - Product name
+     */
     public void setName(String name) {
         this.name = name;
     }
@@ -75,10 +88,16 @@ public abstract class Product implements Serializable {
         this.inventory--;
     }
 
+    /** 
+     * @return      [int]               - Return the inventory
+     */
     public int getInventory() {
         return this.inventory;
     }
 
+    /**
+     * @return      [double]            - Return the price of the product
+     */
     public double getPrice() {
         return this.price;
     }

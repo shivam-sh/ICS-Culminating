@@ -18,7 +18,6 @@ public class Interface {
         Scanner scan = new Scanner(System.in);
         String input;
         Boolean searching;
-        int num;
 
         ProductManager.loadArray();
         EmployeeManager.loadArray();
@@ -55,9 +54,8 @@ public class Interface {
                             System.out.println("\nWhat are you looking for?");
                             System.out.println("[Product Name] [Exit]");
                             input = scan.nextLine();
-
-                            if (input.equalsIgnoreCase("Exit") || input.equalsIgnoreCase("E") || input.equalsIgnoreCase("X") || input.isEmpty()) {
-                            } else if (ProductManager.search(input, 0, ProductManager.getLength()) != -1) {
+    
+                            if (ProductManager.search(input, 0, ProductManager.getLength()) != -1) {
                                 FX.Clear();
                                 ProductManager.getProduct(ProductManager.search(input, 0, ProductManager.getLength())).printSpecs();
     
@@ -85,8 +83,7 @@ public class Interface {
                         System.out.println("[Mac] [iOS] [Exit]");
                         input = scan.nextLine();
 
-                        if (input.equalsIgnoreCase("Exit") || input.equalsIgnoreCase("E") || input.equalsIgnoreCase("X")) {
-                        } else if (input.equalsIgnoreCase("iOS") || input.equalsIgnoreCase("iPhone") || input.equalsIgnoreCase("iPad") || input.equalsIgnoreCase("I")) {
+                        if (input.equalsIgnoreCase("iOS") || input.equalsIgnoreCase("iPhone") || input.equalsIgnoreCase("iPad") || input.equalsIgnoreCase("I")) {
                             ProductManager.addIOS();
                         } else if (input.equalsIgnoreCase("Mac") || input.equalsIgnoreCase("MacBook") || input.equalsIgnoreCase("M")) {
                             ProductManager.addMac();
@@ -110,28 +107,9 @@ public class Interface {
                         FX.Clear();
                         System.out.println("\nOrder Inventory");
                         
-                        ProductManager.listInventory();
-
-                        System.out.println("Which product would you like to order more inventory for?");
-                        System.out.println("[Product name] [Exit]");
-                        input = scan.nextLine();
-
-                        if (ProductManager.search(input, 0, ProductManager.getLength()) != -1) {
-
-                            System.out.println("How much inventory would you like to order?");
-                            num = InputValidation.Int(scan.nextLine());
-                            System.out.println("Ordering Inventory");
-                            ProductManager.getProduct(input).addInventory(num);
-                            System.out.println("[Press Enter to Exit]");
-                        } else {
-                            System.out.println("Invalid input, that product doesn't exist!");
-                            scan.nextLine();
-                        }
                     }
 
                 } while(!(input.equalsIgnoreCase("Exit") || input.equalsIgnoreCase("E") || input.equalsIgnoreCase("X")));
-            } else {
-                System.out.println("Incorrect Employee Number");
             }
         } 
 
@@ -163,9 +141,7 @@ public class Interface {
                         System.out.println("[Product Name] [Exit]");
                         input = scan.nextLine();
 
-                        if (input.equalsIgnoreCase("Exit") || input.equalsIgnoreCase("E") || input.equalsIgnoreCase("X") || input.isEmpty()) {
-                            
-                        } else if (ProductManager.search(input, 0, ProductManager.getLength()) != -1) {
+                        if (ProductManager.search(input, 0, ProductManager.getLength()) != -1) {
                             String product = input;
                             FX.Clear();
                             ProductManager.getProduct(ProductManager.search(input, 0, ProductManager.getLength())).printSpecs();
@@ -200,7 +176,7 @@ public class Interface {
                     input = "a";
                 }
                 
-                // Done, not bugtested
+                // Needs to be finished
                 if (input.equalsIgnoreCase("Checkout") || input.equalsIgnoreCase("C")) {
                     FX.Clear();
                     System.out.println("\nCheckout");
@@ -219,7 +195,6 @@ public class Interface {
                         for (int i = 0; i < cart.length; i++) {
                             if (cart[i] != -1) {
                                 System.out.println( ProductManager.getProduct(cart[i]).toString() );
-                                ProductManager.getProduct(cart[i]).removeInventory();
                             }
                         }
                     }
@@ -238,7 +213,7 @@ public class Interface {
                     System.out.print("\n\nBilling Address - ");
                     scan.nextLine();
 
-                    System.out.println("[Confirm] [Cancel]");
+                    System.out.print("[Confirm] [Cancel]");
                     input = scan.nextLine();
 
                     if (input.equalsIgnoreCase("Confirm") || input.equalsIgnoreCase("C")) {
@@ -281,5 +256,10 @@ public class Interface {
         }
 
         return items;
+    }
+
+
+    public static void name() {
+        
     }
 }
