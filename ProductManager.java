@@ -265,8 +265,23 @@ public class ProductManager implements Serializable {
     public static int search(String item, int beg, int end) {
         int index = (beg + end) / 2;
 
+        if(products.length % 2 == 0) {}
+           
+        else {
+            Product[] temp = new Product[products.length+1];
+            for(int i=0;i<products.length;i++) {
+                temp[i] = products[i];
+            }
+            temp[products.length] = new Mac(" ", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+            products = temp;
+        }
+
         if(item.equalsIgnoreCase(products[index].getName())) {
             return index;
+        }
+
+        else if (end-beg == 1) {
+            return -1;
         }
         else if(beg == end) {
             return -1;

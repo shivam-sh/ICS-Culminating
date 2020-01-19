@@ -68,6 +68,7 @@ public class Interface {
                                 ProductManager.listIOS();
                                 System.out.println();
                                 ProductManager.listMacs();
+                                System.out.println("Please press enter to return to the Browse page");
                                 scan.nextLine();
                             }
                         } while (!(input.equalsIgnoreCase("exit") || input.equalsIgnoreCase("e") || input.equalsIgnoreCase("x")));
@@ -98,7 +99,8 @@ public class Interface {
                         input = scan.nextLine();
 
                         ProductManager.removeProduct(input);
-
+                        
+                        System.out.println("Please press enter to return to the Homepage");
                         scan.nextLine();
                     }
                     
@@ -156,7 +158,8 @@ public class Interface {
                                         cart[i] = ProductManager.getNum(product);
 
                                         searching = false;
-                                        System.out.println("\nAdded to cart");
+    // Note from Daniel: Do we need to tell them its added to cart? cant they already tell when the cart is redisplayed in homepage
+      /* can remove 162-164*/           System.out.println("\nAdded to cart");
                                         System.out.println("[Exit]");
                                         scan.nextLine();
                                         input = "exit";
@@ -169,6 +172,7 @@ public class Interface {
                             ProductManager.listIOS();
                             System.out.println();
                             ProductManager.listMacs();
+                            System.out.println("Please press enter to return to the Search page");
                             scan.nextLine();
                         }
                     } while (!(input.equalsIgnoreCase("exit") || input.equalsIgnoreCase("e") || input.equalsIgnoreCase("x")));
