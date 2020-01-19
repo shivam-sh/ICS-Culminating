@@ -50,19 +50,19 @@ public class Interface {
                         System.out.println("\nBrowse Products");
                         do {
                             FX.Clear();
-                            System.out.println("\nSearch");
-                            System.out.println("\nWhat are you looking for?");
+                            System.out.println("What product are you looking for?");
                             System.out.println("[Product Name] [Exit]");
                             input = scan.nextLine();
     
-                            if (ProductManager.search(input, 0, ProductManager.getLength()) != -1) {
+                            if (!input.isEmpty() && ProductManager.search(input, 0, ProductManager.getLength()) != -1) {
                                 FX.Clear();
                                 ProductManager.getProduct(ProductManager.search(input, 0, ProductManager.getLength())).printSpecs();
     
                                 System.out.println("[Exit]");
                                 input = scan.nextLine();
     
-                            } else {
+                            } else if (!(input.equalsIgnoreCase("exit") || input.equalsIgnoreCase("e") || input.equalsIgnoreCase("x"))) {
+                                FX.Clear();
                                 System.out.println("Sorry, that isn't in the database ");
                                 System.out.println("Here are some options: \n");
                                 ProductManager.listIOS();
@@ -136,12 +136,11 @@ public class Interface {
                 if (input.equalsIgnoreCase("Search") || input.equalsIgnoreCase("S")) {
                     do {
                         FX.Clear();
-                        System.out.println("\nSearch");
-                        System.out.println("\nWhat are you looking for?");
+                        System.out.println("\nWhat product are you looking for?");
                         System.out.println("[Product Name] [Exit]");
                         input = scan.nextLine();
 
-                        if (ProductManager.search(input, 0, ProductManager.getLength()) != -1) {
+                        if (!input.isEmpty() && ProductManager.search(input, 0, ProductManager.getLength()) != -1) {
                             String product = input;
                             FX.Clear();
                             ProductManager.getProduct(ProductManager.search(input, 0, ProductManager.getLength())).printSpecs();
@@ -164,7 +163,7 @@ public class Interface {
                                     }
                                 }
                             }
-                        } else {
+                        } else if (!(input.equalsIgnoreCase("exit") || input.equalsIgnoreCase("e") || input.equalsIgnoreCase("x"))) {
                             System.out.println("Sorry, that isn't in the database ");
                             System.out.println("Here are some options: \n");
                             ProductManager.listIOS();
@@ -240,6 +239,7 @@ public class Interface {
         scan.close();
 
         FX.Clear();
+        ProductManager.saveArray();
         FX.Exit();
     }
 
