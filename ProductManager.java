@@ -43,11 +43,9 @@ public class ProductManager implements Serializable {
      */
     public static void addMac() {
         Product[] temp = new Product[products.length + 1];
-        int productNum = 0;
 
         for (int i = 0; i < products.length; i++) {
             temp[i] = products[i];
-            productNum = i;
         }
 
         FX.Clear();
@@ -93,33 +91,35 @@ public class ProductManager implements Serializable {
         FX.Clear();
         for (int i = 0; i < nCO; i++) {
             System.out.print("\nEnter colour option " + (i + 1) + " - ");
-            ((Mac) temp[productNum]).addColourOption(scan.nextLine());
+            ((Mac) temp[products.length]).addColourOption(scan.nextLine());
         }
 
         FX.Clear();
         for (int i = 0; i < nPO; i++) {
             System.out.print("\nEnter processor option " + (i + 1) + " - ");
-            ((Mac) temp[productNum]).addProcessorOption(scan.nextLine());
+            ((Mac) temp[products.length]).addProcessorOption(scan.nextLine());
         }
 
         FX.Clear();
         for (int i = 0; i < nMO; i++) {
             System.out.print("\nEnter memory option " + (i + 1) + "(ex. \"16 GB\") - ");
-            ((Mac) temp[productNum]).addMemoryOption(scan.nextLine());
+            ((Mac) temp[products.length]).addMemoryOption(scan.nextLine());
         }
 
         FX.Clear();
         for (int i = 0; i < nGO; i++) {
             System.out.print("\nEnter graphics option " + (i + 1) + " - ");
-            ((Mac) temp[productNum]).addGraphicsOption(scan.nextLine());
+            ((Mac) temp[products.length]).addGraphicsOption(scan.nextLine());
         }
 
         FX.Clear();
         for (int i = 0; i < nSO; i++) {
             System.out.print("\nEnter storage option " + (i + 1) + "(ex. \"1 TB\") - ");
-            ((Mac) temp[productNum]).addStorageOption(scan.nextLine());
+            ((Mac) temp[products.length]).addStorageOption(scan.nextLine());
         }
         products = temp;
+
+        nameSort();
     }
 
     /**
@@ -182,6 +182,8 @@ public class ProductManager implements Serializable {
             ((iOS) temp[products.length]).addStorageOption(scan.nextLine());
         }
         products = temp;
+
+        nameSort();
     }
 
 
@@ -221,6 +223,8 @@ public class ProductManager implements Serializable {
         } else {
             System.out.println("Invalid input, nothing deleted");
         }
+
+        nameSort();
     }
 
     /**

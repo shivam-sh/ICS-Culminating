@@ -26,6 +26,8 @@ public class AddDevice {
             ProductManager.addMac();
         }
 
+        ProductManager.nameSort();
+
         ProductManager.saveArray();
 
         scan.close();

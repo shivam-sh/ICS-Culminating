@@ -56,8 +56,7 @@ public class Interface {
                             System.out.println("[Product Name] [Exit]");
                             input = scan.nextLine();
 
-                            if (input.equalsIgnoreCase("Exit") || input.equalsIgnoreCase("E") || input.equalsIgnoreCase("X")) {
-                                continue;
+                            if (input.equalsIgnoreCase("Exit") || input.equalsIgnoreCase("E") || input.equalsIgnoreCase("X") || input.isEmpty()) {
                             } else if (ProductManager.search(input, 0, ProductManager.getLength()) != -1) {
                                 FX.Clear();
                                 ProductManager.getProduct(ProductManager.search(input, 0, ProductManager.getLength())).printSpecs();
@@ -67,8 +66,9 @@ public class Interface {
     
                             } else {
                                 System.out.println("Sorry, that isn't in the database ");
-                                System.out.println("Here are some options");
+                                System.out.println("Here are some options: \n");
                                 ProductManager.listIOS();
+                                System.out.println();
                                 ProductManager.listMacs();
                                 scan.nextLine();
                             }
@@ -86,7 +86,6 @@ public class Interface {
                         input = scan.nextLine();
 
                         if (input.equalsIgnoreCase("Exit") || input.equalsIgnoreCase("E") || input.equalsIgnoreCase("X")) {
-                            continue;
                         } else if (input.equalsIgnoreCase("iOS") || input.equalsIgnoreCase("iPhone") || input.equalsIgnoreCase("iPad") || input.equalsIgnoreCase("I")) {
                             ProductManager.addIOS();
                         } else if (input.equalsIgnoreCase("Mac") || input.equalsIgnoreCase("MacBook") || input.equalsIgnoreCase("M")) {
@@ -164,7 +163,7 @@ public class Interface {
                         System.out.println("[Product Name] [Exit]");
                         input = scan.nextLine();
 
-                        if (input.equalsIgnoreCase("Exit") || input.equalsIgnoreCase("E") || input.equalsIgnoreCase("X")) {
+                        if (input.equalsIgnoreCase("Exit") || input.equalsIgnoreCase("E") || input.equalsIgnoreCase("X") || input.isEmpty()) {
                             
                         } else if (ProductManager.search(input, 0, ProductManager.getLength()) != -1) {
                             String product = input;
@@ -191,8 +190,9 @@ public class Interface {
                             }
                         } else {
                             System.out.println("Sorry, that isn't in the database ");
-                            System.out.println("Here are some options");
+                            System.out.println("Here are some options: \n");
                             ProductManager.listIOS();
+                            System.out.println();
                             ProductManager.listMacs();
                             scan.nextLine();
                         }
@@ -263,8 +263,8 @@ public class Interface {
         }
 
         scan.close();
-        FX.Divider();
 
+        FX.Clear();
         FX.Exit();
     }
 
