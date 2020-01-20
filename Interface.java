@@ -18,6 +18,7 @@ public class Interface {
         Scanner scan = new Scanner(System.in);
         String input;
         Boolean searching;
+        int num;
 
         ProductManager.loadArray();
         EmployeeManager.loadArray();
@@ -107,10 +108,25 @@ public class Interface {
                     // Needs to be finished
                     if (input.equalsIgnoreCase("Order inventory") || input.equalsIgnoreCase("Order") || input.equalsIgnoreCase("o")) {
                         FX.Clear();
-                        System.out.println("\nOrder Inventory");
-                        
-                    }
 
+                        ProductManager.listInventory();
+
+                        System.out.println("Which product would you like to order more inventory for?");
+                        System.out.println("[Product name] [Exit]");
+                        input = scan.nextLine();
+
+                        if (ProductManager.search(input, 0, ProductManager.getLength()) != -1) {
+
+                            System.out.println("How much inventory would you like to order?");
+                            num = InputValidation.Int(scan.nextLine());
+                            System.out.println("Ordering Inventory");
+                            ProductManager.getProduct(input).addInventory(num);
+                            System.out.println("[Press Enter to Exit]");
+                        } else {
+                            System.out.println("Invalid input, that product doesn't exist!");
+                            scan.nextLine();
+                        }
+                    }
                 } while(!(input.equalsIgnoreCase("Exit") || input.equalsIgnoreCase("E") || input.equalsIgnoreCase("X")));
             }
         } 
