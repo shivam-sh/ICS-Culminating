@@ -22,7 +22,12 @@ public class ProductManager implements Serializable {
     public static void listMacs() {
         for (int i = 0; i < products.length; i++) {
             if (products[i] instanceof Mac){
-                System.out.println(products[i].toString());
+                if(products[i].getName().equalsIgnoreCase(" ")) {
+                    System.out.print("");
+                }
+                else {
+                    System.out.println(products[i].toString());
+                }
             }
         }
     }
